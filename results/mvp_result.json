@@ -1,0 +1,17 @@
+{
+  "scene_before": "baseline",
+  "scene_after": "S1_runtime_shift",
+  "baseline_algo": "SPT",
+  "baseline_makespan": 25.06,
+  "degraded_makespan": 76.82,
+  "adapted_makespan": 69.44,
+  "degradation_pct": 206.5,
+  "improvement_pct": 9.6,
+  "recovery_pct": 14.3,
+  "detection_delay": 1,
+  "generation_time_sec": 34.95,
+  "best_fixed_baseline": "LPT",
+  "best_fixed_makespan": 69.44,
+  "beats_best_baseline": "False",
+  "adapted_code": "def priority(task):\n    # Logarithmic transformation to handle heavy-tailed runtimes\n    rt = max(task.estimated_runtime, 1e-9)\n    return -1.0 / (rt ** 0.5)"
+}

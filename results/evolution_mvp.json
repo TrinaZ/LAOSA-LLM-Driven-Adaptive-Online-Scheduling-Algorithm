@@ -1,0 +1,21 @@
+[
+  {
+    "scene": "S1",
+    "scene_name": "S1: Runtime distribution shift",
+    "algo": "SPT",
+    "baseline_ms": 24.43,
+    "degraded_ms": 69.24,
+    "best_fixed_name": "LPT",
+    "best_fixed_ms": 62.33,
+    "evolved_ms": 69.24,
+    "improvement_pct": 0.0,
+    "recovery_pct": 0.0,
+    "beats_best_fixed": "False",
+    "generation": 0,
+    "parent_strategy": "seed",
+    "llm_calls": 18,
+    "time_sec": 0.0,
+    "evolved_code": "def priority(task):\n    return -task.estimated_runtime",
+    "n_rounds": 5
+  }
+]

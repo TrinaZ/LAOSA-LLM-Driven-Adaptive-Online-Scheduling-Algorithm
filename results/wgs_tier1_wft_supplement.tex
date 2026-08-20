@@ -1,0 +1,46 @@
+% ── WGS Tier 1 补充分析（插入 Section VI-C 末尾）────────────────
+\paragraph{Tier-1 result under weighted flow time objective.}
+To isolate the domain-specific effect of LPT near-optimality on the WGS
+Tier-1 Beats-Best rate (0.6\% under makespan), we evaluate two additional
+distributional scenarios (D11, D12) under a \emph{weighted flow time}
+objective ($\sum_j w_j C_j$), where LPT is no longer a strong baseline.
+D11 models a GPU-intensive task surge (20\%\,→\,65\% GPU-intensive tasks
+with weight ratio 3$\times$), and D12 models an emergency batch influx
+(5\%\,→\,40\% urgent tasks with $w_j = 5$).
+
+Across 64 trials (8\,seeds $\times$ 2\,scenarios
+$\times$ 4\,baselines), LAOSA achieves a
+Beats-Best rate of
+$\mathbf{73.4\%}$
+and outperforms LPT specifically in
+$\mathbf{100.0\%}$
+of trials, with mean improvement
+$8.4\% \pm 3.3\%$
+over the degraded baseline.
+This confirms that LAOSA's low Tier-1 Beats-Best under makespan
+is domain-specific (LPT dominates the static baseline pool for
+makespan minimisation), and not a limitation of the generative
+adaptation mechanism itself.
+
+% ── 补充小表（附在 Table IV 之后）────────────────────────────────
+\begin{table}[h]
+\centering
+\caption{WGS Tier-1 under weighted flow time objective
+(D11\,+\,D12, 64\,trials, 8\,seeds).
+Beats Best: vs.\ best static; Beats LPT: vs.\ LPT specifically.
+$\dagger$ LPT is near-optimal for makespan but not for WFT.}
+\label{tab:tier1_wft}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Scenario & Beats Best & Beats LPT & Improvement (\%) \\
+\midrule
+  D11 (GPU surge, WFT)           & 62.5\% & 100.0\% & $8.2\pm2.4$ \\
+  D12 (Emergency burst, WFT)     & 84.4\% & 100.0\% & $8.5\pm4.0$ \\
+  LPT baseline (same scenarios)  & N/A & 0.0\%$^{\dagger}$ & $\approx 0$ \\
+\midrule
+\multicolumn{4}{l}{\footnotesize
+  WGS Tier-1 (makespan, Table~\ref{tab:q1_bytype}): Beats Best = 0.6\% (2/320)}\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,32 @@
+[
+  {
+    "scene": "S3_task_mix_shift",
+    "algo": "LPT",
+    "label": "best structural win",
+    "mean": 34.11,
+    "std": 0.44,
+    "ci95_low": 33.84,
+    "ci95_high": 34.38,
+    "n_reps": 10
+  },
+  {
+    "scene": "S5_objective_change",
+    "algo": "EDF",
+    "label": "best semantic win",
+    "mean": 24.41,
+    "std": 0.24,
+    "ci95_low": 24.26,
+    "ci95_high": 24.56,
+    "n_reps": 10
+  },
+  {
+    "scene": "S1_runtime_shift",
+    "algo": "SPT",
+    "label": "distributional challenge",
+    "mean": 70.99,
+    "std": 3.55,
+    "ci95_low": 68.78,
+    "ci95_high": 73.19,
+    "n_reps": 10
+  }
+]

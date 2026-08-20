@@ -1,0 +1,8 @@
+{
+  "control_bb_pct": 0.0,
+  "treatment_bb_pct": 0.0,
+  "delta_pp": 0.0,
+  "mann_whitney_p": 1.0,
+  "n_control": 40,
+  "n_treatment": 40
+}

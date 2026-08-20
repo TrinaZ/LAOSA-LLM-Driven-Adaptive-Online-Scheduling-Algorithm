@@ -1,0 +1,1020 @@
+nohup: ignoring input
+=== LAOSA 多场景批量实验 ===
+场景数: 5, 种子数: 4, 总实验: 20
+
+────────────────────────────────────────────────────────────
+场景: D_ffpe_shift (FFPE样本70%偏移)
+────────────────────────────────────────────────────────────
+
+  [ 1/20] seed=42
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_ffpe_shift (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 942.410
+
+  [Phase 2] Measuring degraded performance (D_ffpe_shift)...
+    Degraded metric: 958.794 (degradation: 1.7%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=958.794, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 改善 1.3%: 958.794 → 946.601
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 改善 0.2%: 946.601 → 944.693
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=944.693（改善1.5%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=958.794
+    LPT         : metric=983.042
+    EDF         : metric=939.664
+    WSJF        : metric=958.794 ← baseline
+    Priority    : metric=932.829
+    FIFO        : metric=959.323
+    LAOSA       : metric=944.693 ← generated
+
+  Done: improvement=1.5%, recovery=86.1%, beats_best=False, llm_calls=8, time=145.6s
+  · impr=1.5%  rec=86.1%  queries=8
+
+  [ 2/20] seed=43
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_ffpe_shift (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1485.370
+
+  [Phase 2] Measuring degraded performance (D_ffpe_shift)...
+    Degraded metric: 1507.844 (degradation: 1.5%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1507.844, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=8/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1507.844（改善0.0%）
+    [Evo] 进化未能改善，使用simulated fallback
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1507.844
+    LPT         : metric=1553.252
+    EDF         : metric=1520.800
+    WSJF        : metric=1507.844 ← baseline
+    Priority    : metric=1565.958
+    FIFO        : metric=1540.444
+    LAOSA       : metric=1540.920 ← generated
+
+  Done: improvement=-2.2%, recovery=-147.2%, beats_best=False, llm_calls=8, time=133.0s
+  · impr=-2.2%  rec=-147.2%  queries=8
+
+  [ 3/20] seed=44
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_ffpe_shift (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1698.405
+
+  [Phase 2] Measuring degraded performance (D_ffpe_shift)...
+    Degraded metric: 1590.245 (degradation: -6.4%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1590.245, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=8/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1590.245（改善0.0%）
+    [Evo] 进化未能改善，使用simulated fallback
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1590.245
+    LPT         : metric=1664.501
+    EDF         : metric=1632.306
+    WSJF        : metric=1590.245 ← baseline
+    Priority    : metric=1635.801
+    FIFO        : metric=1608.632
+    LAOSA       : metric=1638.148 ← generated
+
+  Done: improvement=-3.0%, recovery=-44.3%, beats_best=False, llm_calls=8, time=147.8s
+  · impr=-3.0%  rec=-44.3%  queries=8
+
+  [ 4/20] seed=45
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_ffpe_shift (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1137.764
+
+  [Phase 2] Measuring degraded performance (D_ffpe_shift)...
+    Degraded metric: 1204.344 (degradation: 5.9%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1204.344, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 改善 2.2%: 1204.344 → 1177.559
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 改善 0.0%: 1177.559 → 1177.528
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 改善 0.6%: 1177.528 → 1170.689
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1170.689（改善2.8%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1204.344
+    LPT         : metric=1193.267
+    EDF         : metric=1188.160
+    WSJF        : metric=1204.344 ← baseline
+    Priority    : metric=1182.844
+    FIFO        : metric=1213.664
+    LAOSA       : metric=1170.689 ← generated ✓ BETTER
+
+  Done: improvement=2.8%, recovery=50.5%, beats_best=True, llm_calls=8, time=141.8s
+  ✓ impr=2.8%  rec=50.5%  queries=8
+
+  汇总: impr=-0.2%±2.4%  rec=-13.7%±90.6%  beats=1/4
+
+────────────────────────────────────────────────────────────
+场景: S_gpu_failure (GPU节点80%故障)
+────────────────────────────────────────────────────────────
+
+  [ 5/20] seed=42
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_gpu_failure (structural)
+  Baseline: SPT
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 942.410
+
+  [Phase 2] Measuring degraded performance (S_gpu_failure)...
+    Degraded metric: 1038.012 (degradation: 10.1%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1038.012, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 4.8%: 1038.012 → 987.865
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=987.865（改善4.8%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1038.012 ← baseline
+    LPT         : metric=994.687
+    EDF         : metric=998.591
+    WSJF        : metric=1038.012
+    Priority    : metric=1015.507
+    FIFO        : metric=1013.521
+    LAOSA       : metric=987.865 ← generated ✓ BETTER
+
+  Done: improvement=4.8%, recovery=52.5%, beats_best=True, llm_calls=8, time=122.1s
+  ✓ impr=4.8%  rec=52.5%  queries=8
+
+  [ 6/20] seed=43
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_gpu_failure (structural)
+  Baseline: SPT
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1485.370
+
+  [Phase 2] Measuring degraded performance (S_gpu_failure)...
+    Degraded metric: 1760.621 (degradation: 18.5%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 13 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1760.621, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 5.4%: 1760.621 → 1665.386
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 改善 0.2%: 1665.386 → 1661.922
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1661.922（改善5.6%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1760.621 ← baseline
+    LPT         : metric=1760.770
+    EDF         : metric=1641.586
+    WSJF        : metric=1760.621
+    Priority    : metric=1764.615
+    FIFO        : metric=1688.370
+    LAOSA       : metric=1661.922 ← generated
+
+  Done: improvement=5.6%, recovery=35.9%, beats_best=False, llm_calls=8, time=145.1s
+  · impr=5.6%  rec=35.9%  queries=8
+
+  [ 7/20] seed=44
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_gpu_failure (structural)
+  Baseline: SPT
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1698.405
+
+  [Phase 2] Measuring degraded performance (S_gpu_failure)...
+    Degraded metric: 1770.638 (degradation: 4.3%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1770.638, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 1.5%: 1770.638 → 1744.396
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 改善 0.9%: 1744.396 → 1728.719
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 改善 0.3%: 1728.719 → 1723.575
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1723.575（改善2.7%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1770.638 ← baseline
+    LPT         : metric=1819.228
+    EDF         : metric=1761.011
+    WSJF        : metric=1770.638
+    Priority    : metric=1756.924
+    FIFO        : metric=1703.743
+    LAOSA       : metric=1723.575 ← generated
+
+  Done: improvement=2.7%, recovery=65.2%, beats_best=False, llm_calls=8, time=161.5s
+  · impr=2.7%  rec=65.2%  queries=8
+
+  [ 8/20] seed=45
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_gpu_failure (structural)
+  Baseline: SPT
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1137.764
+
+  [Phase 2] Measuring degraded performance (S_gpu_failure)...
+    Degraded metric: 1344.445 (degradation: 18.2%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 13 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1344.445, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 改善 4.7%: 1344.445 → 1281.789
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1281.789（改善4.7%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1344.445 ← baseline
+    LPT         : metric=1437.450
+    EDF         : metric=1358.019
+    WSJF        : metric=1344.445
+    Priority    : metric=1433.978
+    FIFO        : metric=1321.421
+    LAOSA       : metric=1281.789 ← generated ✓ BETTER
+
+  Done: improvement=4.7%, recovery=30.3%, beats_best=True, llm_calls=8, time=138.8s
+  ✓ impr=4.7%  rec=30.3%  queries=8
+
+  汇总: impr=4.4%±1.1%  rec=46.0%±13.8%  beats=2/4
+
+────────────────────────────────────────────────────────────
+场景: S_storage_bottleneck (存储IO带宽10%)
+────────────────────────────────────────────────────────────
+
+  [ 9/20] seed=42
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_storage_bottleneck (structural)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 932.843
+
+  [Phase 2] Measuring degraded performance (S_storage_bottleneck)...
+    Degraded metric: 1055.406 (degradation: 13.1%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 16 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1055.406, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 改善 1.0%: 1055.406 → 1044.387
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1044.387（改善1.0%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1060.532
+    LPT         : metric=1090.387
+    EDF         : metric=1055.406 ← baseline
+    WSJF        : metric=1060.532
+    Priority    : metric=1055.406
+    FIFO        : metric=1042.660
+    LAOSA       : metric=1044.387 ← generated
+
+  Done: improvement=1.0%, recovery=9.0%, beats_best=False, llm_calls=8, time=150.2s
+  · impr=1.0%  rec=9.0%  queries=8
+
+  [10/20] seed=43
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_storage_bottleneck (structural)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1518.796
+
+  [Phase 2] Measuring degraded performance (S_storage_bottleneck)...
+    Degraded metric: 1595.544 (degradation: 5.1%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1595.544, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=8/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1595.544（改善0.0%）
+    [Evo] 进化未能改善，使用simulated fallback
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1574.138
+    LPT         : metric=1654.761
+    EDF         : metric=1595.544 ← baseline
+    WSJF        : metric=1574.138
+    Priority    : metric=1595.544
+    FIFO        : metric=1608.280
+    LAOSA       : metric=1593.092 ← generated
+
+  Done: improvement=0.2%, recovery=3.2%, beats_best=False, llm_calls=8, time=149.2s
+  · impr=0.2%  rec=3.2%  queries=8
+
+  [11/20] seed=44
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_storage_bottleneck (structural)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1644.529
+
+  [Phase 2] Measuring degraded performance (S_storage_bottleneck)...
+    Degraded metric: 1742.470 (degradation: 6.0%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 20 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1742.470, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 0.3%: 1742.470 → 1738.106
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 改善 1.5%: 1738.106 → 1712.869
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1712.869（改善1.7%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1720.518
+    LPT         : metric=1824.478
+    EDF         : metric=1742.470 ← baseline
+    WSJF        : metric=1720.518
+    Priority    : metric=1742.470
+    FIFO        : metric=1757.791
+    LAOSA       : metric=1712.869 ← generated ✓ BETTER
+
+  Done: improvement=1.7%, recovery=30.2%, beats_best=True, llm_calls=8, time=171.0s
+  ✓ impr=1.7%  rec=30.2%  queries=8
+
+  [12/20] seed=45
+
+============================================================
+  LAOSA Online Experiment
+  Scene: S_storage_bottleneck (structural)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1141.547
+
+  [Phase 2] Measuring degraded performance (S_storage_bottleneck)...
+    Degraded metric: 1288.994 (degradation: 12.9%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 17 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1288.994, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 改善 0.5%: 1288.994 → 1282.226
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1282.226（改善0.5%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1253.445
+    LPT         : metric=1317.587
+    EDF         : metric=1288.994 ← baseline
+    WSJF        : metric=1253.445
+    Priority    : metric=1288.994
+    FIFO        : metric=1271.466
+    LAOSA       : metric=1282.226 ← generated
+
+  Done: improvement=0.5%, recovery=4.6%, beats_best=False, llm_calls=8, time=135.9s
+  · impr=0.5%  rec=4.6%  queries=8
+
+  汇总: impr=0.8%±0.6%  rec=11.8%±10.9%  beats=1/4
+
+────────────────────────────────────────────────────────────
+场景: Sem_makespan_sla (SLA目标切换)
+────────────────────────────────────────────────────────────
+
+  [13/20] seed=42
+
+============================================================
+  LAOSA Online Experiment
+  Scene: Sem_makespan_sla (semantic)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 932.843
+
+  [Phase 2] Measuring degraded performance (Sem_makespan_sla)...
+    Degraded metric: 1222.500 (degradation: 31.1%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 9 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1222.500, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 0.4%: 1222.500 → 1217.500
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1217.500（改善0.4%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1420.000
+    LPT         : metric=1390.000
+    EDF         : metric=1222.500 ← baseline
+    WSJF        : metric=1420.000
+    Priority    : metric=1150.714
+    FIFO        : metric=1360.000
+    LAOSA       : metric=1217.500 ← generated
+
+  Done: improvement=0.4%, recovery=1.7%, beats_best=False, llm_calls=8, time=177.8s
+  · impr=0.4%  rec=1.7%  queries=8
+
+  [14/20] seed=43
+
+============================================================
+  LAOSA Online Experiment
+  Scene: Sem_makespan_sla (semantic)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1518.796
+
+  [Phase 2] Measuring degraded performance (Sem_makespan_sla)...
+    Degraded metric: 1945.000 (degradation: 28.1%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 10 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1945.000, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=8/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1945.000（改善0.0%）
+    [Evo] 进化未能改善，使用simulated fallback
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=2150.000
+    LPT         : metric=2150.000
+    EDF         : metric=1945.000 ← baseline
+    WSJF        : metric=2150.000
+    Priority    : metric=1990.000
+    FIFO        : metric=2095.000
+    LAOSA       : metric=1965.000 ← generated
+
+  Done: improvement=-1.0%, recovery=-4.7%, beats_best=False, llm_calls=8, time=193.1s
+  · impr=-1.0%  rec=-4.7%  queries=8
+
+  [15/20] seed=44
+
+============================================================
+  LAOSA Online Experiment
+  Scene: Sem_makespan_sla (semantic)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1644.529
+
+  [Phase 2] Measuring degraded performance (Sem_makespan_sla)...
+    Degraded metric: 1962.308 (degradation: 19.3%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 12 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1962.308, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 1.0%: 1962.308 → 1942.857
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1942.857（改善1.0%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=2183.333
+    LPT         : metric=2075.000
+    EDF         : metric=1962.308 ← baseline
+    WSJF        : metric=2183.333
+    Priority    : metric=1998.333
+    FIFO        : metric=2100.000
+    LAOSA       : metric=1942.857 ← generated ✓ BETTER
+
+  Done: improvement=1.0%, recovery=6.1%, beats_best=True, llm_calls=8, time=201.1s
+  ✓ impr=1.0%  rec=6.1%  queries=8
+
+  [16/20] seed=45
+
+============================================================
+  LAOSA Online Experiment
+  Scene: Sem_makespan_sla (semantic)
+  Baseline: EDF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1141.547
+
+  [Phase 2] Measuring degraded performance (Sem_makespan_sla)...
+    Degraded metric: 1570.000 (degradation: 37.5%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 8 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=1570.000, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=6/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=7/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 改善 0.3%: 1570.000 → 1565.000
+    [Evo] 搜索结束：共8次LLM调用，最终metric=1565.000（改善0.3%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=1650.000
+    LPT         : metric=1670.000
+    EDF         : metric=1570.000 ← baseline
+    WSJF        : metric=1650.000
+    Priority    : metric=1565.000
+    FIFO        : metric=1700.000
+    LAOSA       : metric=1565.000 ← generated
+
+  Done: improvement=0.3%, recovery=1.2%, beats_best=False, llm_calls=8, time=171.8s
+  · impr=0.3%  rec=1.2%  queries=8
+
+  汇总: impr=0.2%±0.7%  rec=1.1%±3.8%  beats=1/4
+
+────────────────────────────────────────────────────────────
+场景: D_load_surge (急诊潮涌对照)
+────────────────────────────────────────────────────────────
+
+  [17/20] seed=42
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_load_surge (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 942.410
+
+  [Phase 2] Measuring degraded performance (D_load_surge)...
+    Degraded metric: 7680.598 (degradation: 715.0%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 1 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=7680.598, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 0.4%: 7680.598 → 7647.645
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 改善 0.1%: 7647.645 → 7641.538
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 改善 0.0%: 7641.538 → 7641.301
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=7641.301（改善0.5%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=7680.598
+    LPT         : metric=7656.723
+    EDF         : metric=7685.769
+    WSJF        : metric=7680.598 ← baseline
+    Priority    : metric=7620.139
+    FIFO        : metric=7628.077
+    LAOSA       : metric=7641.301 ← generated
+
+  Done: improvement=0.5%, recovery=0.6%, beats_best=False, llm_calls=8, time=222.8s
+  · impr=0.5%  rec=0.6%  queries=8
+
+  [18/20] seed=43
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_load_surge (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1485.370
+
+  [Phase 2] Measuring degraded performance (D_load_surge)...
+    Degraded metric: 10650.518 (degradation: 617.0%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 1 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=10650.518, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 改善 0.4%: 10650.518 → 10604.046
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 改善 0.1%: 10604.046 → 10597.669
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=10597.669（改善0.5%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=10650.518
+    LPT         : metric=10667.554
+    EDF         : metric=10599.287
+    WSJF        : metric=10650.518 ← baseline
+    Priority    : metric=10620.439
+    FIFO        : metric=10567.030
+    LAOSA       : metric=10597.669 ← generated
+
+  Done: improvement=0.5%, recovery=0.6%, beats_best=False, llm_calls=8, time=244.9s
+  · impr=0.5%  rec=0.6%  queries=8
+
+  [19/20] seed=44
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_load_surge (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1698.405
+
+  [Phase 2] Measuring degraded performance (D_load_surge)...
+    Degraded metric: 10772.696 (degradation: 534.3%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 2 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=10772.696, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 0.3%: 10772.696 → 10737.848
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 改善 0.2%: 10737.848 → 10713.265
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 改善 0.8%: 10713.265 → 10623.985
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=10623.985（改善1.4%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=10772.696
+    LPT         : metric=10682.748
+    EDF         : metric=10628.342
+    WSJF        : metric=10772.696 ← baseline
+    Priority    : metric=10768.251
+    FIFO        : metric=10625.437
+    LAOSA       : metric=10623.985 ← generated ✓ BETTER
+
+  Done: improvement=1.4%, recovery=1.6%, beats_best=True, llm_calls=8, time=258.6s
+  ✓ impr=1.4%  rec=1.6%  queries=8
+
+  [20/20] seed=45
+
+============================================================
+  LAOSA Online Experiment
+  Scene: D_load_surge (distributional)
+  Baseline: WSJF
+============================================================
+
+  [Phase 1] Measuring baseline performance...
+    Baseline metric: 1137.764
+
+  [Phase 2] Measuring degraded performance (D_load_surge)...
+    Degraded metric: 9393.860 (degradation: 725.6%)
+
+  [Phase 3] Change detection...
+    Change detected at lag 1 steps
+
+  [Phase 4] LLM evolutionary search...
+    [Evo] incumbent metric=9393.860, max_calls=30, patience=8
+    [Evo] 第1轮，已用0次调用...
+    [Evo] 改善 0.2%: 9393.860 → 9375.616
+    [Evo] 第2轮，已用1次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 第3轮，已用2次调用...
+    [Evo] 本轮无改善 (patience=2/8)
+    [Evo] 第4轮，已用3次调用...
+    [Evo] 本轮无改善 (patience=3/8)
+    [Evo] 第5轮，已用4次调用...
+    [Evo] 本轮无改善 (patience=4/8)
+    [Evo] 第6轮，已用5次调用...
+    [Evo] 本轮无改善 (patience=5/8)
+    [Evo] 第7轮，已用6次调用...
+    [Evo] 改善 0.0%: 9375.616 → 9374.760
+    [Evo] 第8轮，已用7次调用...
+    [Evo] 本轮无改善 (patience=1/8)
+    [Evo] 搜索结束：共8次LLM调用，最终metric=9374.760（改善0.2%）
+
+  [Phase 5] Comparing with all baselines...
+    SPT         : metric=9393.860
+    LPT         : metric=9380.950
+    EDF         : metric=9378.464
+    WSJF        : metric=9393.860 ← baseline
+    Priority    : metric=9380.812
+    FIFO        : metric=9380.141
+    LAOSA       : metric=9374.760 ← generated ✓ BETTER
+
+  Done: improvement=0.2%, recovery=0.2%, beats_best=True, llm_calls=8, time=239.1s
+  ✓ impr=0.2%  rec=0.2%  queries=8
+
+  汇总: impr=0.7%±0.5%  rec=0.8%±0.5%  beats=2/4
+
+============================================================
+完成 20/20，结果: results/laosa_multi_scene.json

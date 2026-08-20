@@ -1,0 +1,54 @@
+[
+  {
+    "combo": "S1+S2",
+    "description": "Runtime shift (LogNormal) AND resource drop (100\u219260)",
+    "results": {
+      "SPT": 83.9,
+      "LPT": 66.2,
+      "EDF": 83.7,
+      "WSJF": 83.9,
+      "ResourceEfficient": 79.4
+    },
+    "best_fixed": "LPT",
+    "best_fixed_ms": 66.2
+  },
+  {
+    "combo": "S3+S5",
+    "description": "Task mix shift (30/70) AND weight change (3x urgent)",
+    "results": {
+      "SPT": 36.5,
+      "LPT": 34.0,
+      "EDF": 35.8,
+      "WSJF": 36.7,
+      "ResourceEfficient": 35.3
+    },
+    "best_fixed": "LPT",
+    "best_fixed_ms": 34.0
+  },
+  {
+    "combo": "S1+S3",
+    "description": "Runtime shift AND task mix shift (hardest combo)",
+    "results": {
+      "SPT": 83.4,
+      "LPT": 72.6,
+      "EDF": 84.2,
+      "WSJF": 83.4,
+      "ResourceEfficient": 77.9
+    },
+    "best_fixed": "LPT",
+    "best_fixed_ms": 72.6
+  },
+  {
+    "combo": "S2+S4",
+    "description": "Resource drop AND novel task type",
+    "results": {
+      "SPT": 178.7,
+      "LPT": 159.6,
+      "EDF": 178.1,
+      "WSJF": 178.7,
+      "ResourceEfficient": 183.4
+    },
+    "best_fixed": "LPT",
+    "best_fixed_ms": 159.6
+  }
+]

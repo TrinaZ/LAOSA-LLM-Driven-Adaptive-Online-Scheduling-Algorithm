@@ -1,0 +1,116 @@
+{
+  "cloud__to__cloud": {
+    "in_domain": true
+  },
+  "semiconductor__to__semiconductor": {
+    "in_domain": true
+  },
+  "cloud__to__semiconductor": {
+    "in_domain": false,
+    "n": 48,
+    "n_seeds": 3,
+    "success_rate": 81.2,
+    "sr_std": 39.0,
+    "sr_ci95": [
+      69.8,
+      92.7
+    ],
+    "queries_mean": 5.0,
+    "queries_std": 1.9,
+    "queries_ci95": [
+      4.429,
+      5.53
+    ],
+    "latency_mean": 0.33,
+    "latency_std": 0.15,
+    "latency_ci95": [
+      0.289,
+      0.376
+    ],
+    "improvement_mean": 22.8,
+    "improvement_std": 25.9,
+    "beats_best_pct": 27.1,
+    "p_wilcoxon": 0.125
+  },
+  "cloud__to__delivery": {
+    "in_domain": false,
+    "n": 80,
+    "n_seeds": 4,
+    "success_rate": 75.0,
+    "sr_std": 43.3,
+    "sr_ci95": [
+      65.3,
+      84.7
+    ],
+    "queries_mean": 3.2,
+    "queries_std": 1.6,
+    "queries_ci95": [
+      2.842,
+      3.558
+    ],
+    "latency_mean": 0.22,
+    "latency_std": 0.11,
+    "latency_ci95": [
+      0.193,
+      0.244
+    ],
+    "improvement_mean": 27.9,
+    "improvement_std": 31.8,
+    "beats_best_pct": 0.0,
+    "p_wilcoxon": 0.0
+  },
+  "semiconductor__to__cloud": {
+    "in_domain": false,
+    "n": 80,
+    "n_seeds": 4,
+    "success_rate": 80.0,
+    "sr_std": 40.0,
+    "sr_ci95": [
+      71.0,
+      89.0
+    ],
+    "queries_mean": 4.3,
+    "queries_std": 0.7,
+    "queries_ci95": [
+      4.148,
+      4.477
+    ],
+    "latency_mean": 0.32,
+    "latency_std": 0.14,
+    "latency_ci95": [
+      0.284,
+      0.348
+    ],
+    "improvement_mean": 12.9,
+    "improvement_std": 12.1,
+    "beats_best_pct": 20.0,
+    "p_wilcoxon": 0.0
+  },
+  "semiconductor__to__delivery": {
+    "in_domain": false,
+    "n": 80,
+    "n_seeds": 4,
+    "success_rate": 75.0,
+    "sr_std": 43.3,
+    "sr_ci95": [
+      65.3,
+      84.7
+    ],
+    "queries_mean": 3.2,
+    "queries_std": 1.6,
+    "queries_ci95": [
+      2.842,
+      3.558
+    ],
+    "latency_mean": 0.23,
+    "latency_std": 0.12,
+    "latency_ci95": [
+      0.2,
+      0.254
+    ],
+    "improvement_mean": 27.9,
+    "improvement_std": 31.8,
+    "beats_best_pct": 0.0,
+    "p_wilcoxon": 0.0
+  }
+}

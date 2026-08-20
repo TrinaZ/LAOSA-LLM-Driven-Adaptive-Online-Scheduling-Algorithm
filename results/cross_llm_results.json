@@ -1,0 +1,140 @@
+{
+  "deepseek": {
+    "config": {
+      "name": "DeepSeek-V3",
+      "provider": "deepseek",
+      "model_id": "deepseek-chat",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "cost_per_1k_tokens": 0.0014,
+      "temperature": 0.7,
+      "max_tokens": 2048
+    },
+    "success_rate": "6/6",
+    "success_percentage": 100.0,
+    "total_cost": 0.0058,
+    "avg_rounds": 1.2,
+    "avg_improvement": 0.0,
+    "detailed_results": [
+      {
+        "scene": "S2",
+        "baseline": "LPT",
+        "success": true,
+        "rounds_needed": 1,
+        "final_makespan": 190.0,
+        "improvement_vs_best": 5.6,
+        "uses_graph_context": true,
+        "llm_calls": [
+          {
+            "round": 1,
+            "tokens": 715,
+            "cost": 0.001001,
+            "latency": 2.876241683959961
+          }
+        ],
+        "total_cost": 0.001001,
+        "generated_code": "def priority(task, graph_context):\n    # Compute resource efficiency: work done per unit resource\n    resource_efficiency = task.duration / max(task.resource_need, 1)\n    \n    # Downstream impact: number of tasks blocked and total work dependent on this task\n    downstream_impact = graph_context.out_degree(task) * graph_context.recursive_workload(task)\n    \n    # Resource contention awareness: penalize large resource needs when contention is high\n    contention = graph_context.contention_index(\"cpu\")\n    resource_penalty = task.resource_need * max(contention, 1.0)\n    \n    # Combine: prioritize tasks that are resource-efficient, have high downstream impact, \n    # and avoid resource hogs when contention is high\n    score = resource_efficiency * downstream_impact / (resource_penalty + 1)\n    \n    return score"
+      },
+      {
+        "scene": "S2",
+        "baseline": "WSJF",
+        "success": true,
+        "rounds_needed": 1,
+        "final_makespan": 187.0,
+        "improvement_vs_best": 7.1,
+        "uses_graph_context": true,
+        "llm_calls": [
+          {
+            "round": 1,
+            "tokens": 601,
+            "cost": 0.0008414,
+            "latency": 2.78083872795105
+          }
+        ],
+        "total_cost": 0.0008414,
+        "generated_code": "def priority(task, graph_context):\n    # Weight factor (as in WSJF)\n    weight = task.weight\n    \n    # Resource feasibility: prefer tasks that fit available resources\n    # Use contention index to penalize tasks needing high resources when under contention\n    resource_need = task.resource_need\n    contention = graph_context.contention_index('cpu')\n    resource_penalty = max(1.0, contention * resource_need / 60.0)\n    \n    # Downstream urgency: use critical path remaining time\n    critical_path = graph_context.critical_path_remaining(task)\n    \n    # Combine: prioritize high-weight tasks on critical path that fit resources\n    score = (weight * critical_path) / resource_penalty\n    \n    return score"
+      },
+      {
+        "scene": "S3",
+        "baseline": "LPT",
+        "success": true,
+        "rounds_needed": 1,
+        "final_makespan": 31.6,
+        "improvement_vs_best": 6.9,
+        "uses_graph_context": true,
+        "llm_calls": [
+          {
+            "round": 1,
+            "tokens": 691,
+            "cost": 0.0009673999999999999,
+            "latency": 3.99086332321167
+          }
+        ],
+        "total_cost": 0.0009673999999999999,
+        "generated_code": "def priority(task, graph_context):\n    # Dynamically adjust priority based on resource contention and task size\n    # to improve bin-packing efficiency and reduce fragmentation\n    \n    # Base priority: critical path awareness\n    cp_remaining = graph_context.critical_path_remaining(task)\n    \n    # Resource contention factor: favor smaller tasks when large tasks cause fragmentation\n    resource_need = task.resource_need\n    contention = graph_context.contention_index(\"cpu\")\n    \n    # When contention is high (oversubscribed), prioritize smaller tasks to fill gaps\n    # When contention is low, prioritize larger tasks for critical path\n    if contention > 1.0:\n        # High contention: favor smaller tasks to reduce fragmentation\n        size_factor = -resource_need  # Negative: smaller tasks get higher priority\n    else:\n        # Low contention: favor larger tasks for critical path\n        size_factor = resource_need\n    \n    # Downstream workload awareness\n    downstream = graph_context.recursive_workload(task)\n    \n    # Combine factors: critical path + contention-aware size + downstream workload\n    priority_score = cp_remaining * 10 + size_factor * 5 + downstream * 2\n    \n    return priority_score"
+      },
+      {
+        "scene": "S3",
+        "baseline": "WSJF",
+        "success": true,
+        "rounds_needed": 1,
+        "final_makespan": 33.5,
+        "improvement_vs_best": 1.5,
+        "uses_graph_context": true,
+        "llm_calls": [
+          {
+            "round": 1,
+            "tokens": 528,
+            "cost": 0.0007392000000000001,
+            "latency": 2.5174951553344727
+          }
+        ],
+        "total_cost": 0.0007392000000000001,
+        "generated_code": "def priority(task, graph_context):\n    # Combine weight priority with bin-packing efficiency\n    # Use critical path awareness and resource contention\n    weight_factor = task.weight / (task.duration * task.resource_need)\n    critical_factor = graph_context.critical_path_remaining(task)\n    contention = graph_context.contention_index(task.resource_need) if hasattr(graph_context, 'contention_index') else 1.0\n    \n    # Penalize large tasks when contention is high, favor smaller tasks to fill gaps\n    size_penalty = (task.duration * task.resource_need) ** (0.5 * contention)\n    \n    return weight_factor / size_penalty + critical_factor * 0.01"
+      },
+      {
+        "scene": "S5",
+        "baseline": "SPT",
+        "success": true,
+        "rounds_needed": 1,
+        "final_makespan": 22.4,
+        "improvement_vs_best": 3.4,
+        "uses_graph_context": true,
+        "llm_calls": [
+          {
+            "round": 1,
+            "tokens": 634,
+            "cost": 0.0008876,
+            "latency": 3.1774134635925293
+          }
+        ],
+        "total_cost": 0.0008876,
+        "generated_code": "def priority(task, graph_context):\n    # Weight-aware priority: prioritize high-weight tasks with short duration\n    weight_factor = task.weight\n    # Use inverse of duration to keep some SPT flavor for equal weights\n    duration_factor = 1.0 / (task.duration + 1e-9)\n    # Critical path awareness: tasks on longer paths get slight boost\n    cp_factor = 1.0 + 0.1 * graph_context.critical_path_remaining(task) / (task.duration + 1e-9)\n    # Contention awareness: if resource is oversubscribed, favor shorter tasks\n    resource = task.resource_need\n    contention = graph_context.contention_index(resource)\n    contention_factor = 1.0 / (1.0 + 0.5 * max(0, contention - 1.0))\n    # Combine: weight strongly dominates, then duration, then critical path, then contention\n    return weight_factor * duration_factor * cp_factor * contention_factor"
+      },
+      {
+        "scene": "S5",
+        "baseline": "EDF",
+        "success": true,
+        "rounds_needed": 2,
+        "final_makespan": 22.5,
+        "improvement_vs_best": 3.1,
+        "uses_graph_context": true,
+        "llm_calls": [
+          {
+            "round": 1,
+            "tokens": 505,
+            "cost": 0.000707,
+            "latency": 2.1387500762939453
+          },
+          {
+            "round": 2,
+            "tokens": 473,
+            "cost": 0.0006621999999999999,
+            "latency": 1.9722518920898438
+          }
+        ],
+        "total_cost": 0.0013691999999999999,
+        "generated_code": "def priority(task, graph_context):\n    # Explicitly prioritize by urgency weight, with DAG awareness\n    # Resolves the root cause: deadline \u2260 urgency weight\n    weight = task.weight\n    # Boost tasks on critical path to avoid downstream delays\n    critical_path = graph_context.critical_path_remaining(task)\n    # Combine weight (primary) and critical path (secondary) for tie-breaking\n    return weight * 1000 + critical_path"
+      }
+    ]
+  }
+}

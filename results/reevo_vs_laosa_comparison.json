@@ -1,0 +1,22 @@
+{
+  "reevo": {
+    "method": "ReEvo",
+    "scene": "dag_S2_resource_drop",
+    "llm_calls": 100,
+    "time_minutes": 46.666666666666664,
+    "degraded_makespan": 201.32,
+    "final_makespan": 188.23420000000002,
+    "improvement_pct": 6.499999999999989,
+    "timestamp": "2026-04-22T12:19:42.401798"
+  },
+  "laosa": {
+    "method": "LAOSA",
+    "scene": "dag_S2_resource_drop",
+    "llm_calls": 18,
+    "time_minutes": 3.21,
+    "degraded_makespan": 201.32,
+    "final_makespan": 188.26,
+    "improvement_pct": 6.487184581760383,
+    "timestamp": "2026-04-22T12:19:42.405436"
+  }
+}

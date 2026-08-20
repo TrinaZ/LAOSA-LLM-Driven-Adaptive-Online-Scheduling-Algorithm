@@ -1,0 +1,222 @@
+[
+  {
+    "scene": "S1_runtime_shift",
+    "algo": "SPT",
+    "change_type": "distributional",
+    "delta": 2.065,
+    "rho": 0.904,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 206.5
+  },
+  {
+    "scene": "S1_runtime_shift",
+    "algo": "LPT",
+    "change_type": "distributional",
+    "delta": 1.903,
+    "rho": 1.0,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "LPT",
+    "degradation_pct": 190.3
+  },
+  {
+    "scene": "S1_runtime_shift",
+    "algo": "EDF",
+    "change_type": "distributional",
+    "delta": 2.087,
+    "rho": 0.905,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 208.7
+  },
+  {
+    "scene": "S1_runtime_shift",
+    "algo": "WSJF",
+    "change_type": "distributional",
+    "delta": 2.065,
+    "rho": 0.904,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 206.5
+  },
+  {
+    "scene": "S2_resource_drop",
+    "algo": "SPT",
+    "change_type": "structural",
+    "delta": 0.534,
+    "rho": 0.988,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "EDF",
+    "degradation_pct": 53.4
+  },
+  {
+    "scene": "S2_resource_drop",
+    "algo": "LPT",
+    "change_type": "structural",
+    "delta": 0.598,
+    "rho": 0.994,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "EDF",
+    "degradation_pct": 59.8
+  },
+  {
+    "scene": "S2_resource_drop",
+    "algo": "EDF",
+    "change_type": "structural",
+    "delta": 0.529,
+    "rho": 1.0,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "EDF",
+    "degradation_pct": 52.9
+  },
+  {
+    "scene": "S2_resource_drop",
+    "algo": "WSJF",
+    "change_type": "structural",
+    "delta": 0.534,
+    "rho": 0.988,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "EDF",
+    "degradation_pct": 53.4
+  },
+  {
+    "scene": "S3_task_mix_shift",
+    "algo": "SPT",
+    "change_type": "distributional",
+    "delta": 0.441,
+    "rho": 0.937,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 44.1
+  },
+  {
+    "scene": "S3_task_mix_shift",
+    "algo": "LPT",
+    "change_type": "distributional",
+    "delta": 0.414,
+    "rho": 1.0,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "LPT",
+    "degradation_pct": 41.4
+  },
+  {
+    "scene": "S3_task_mix_shift",
+    "algo": "EDF",
+    "change_type": "distributional",
+    "delta": 0.436,
+    "rho": 0.948,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 43.6
+  },
+  {
+    "scene": "S3_task_mix_shift",
+    "algo": "WSJF",
+    "change_type": "distributional",
+    "delta": 0.441,
+    "rho": 0.937,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 44.1
+  },
+  {
+    "scene": "S4_novel_task",
+    "algo": "SPT",
+    "change_type": "structural",
+    "delta": 2.658,
+    "rho": 0.816,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 265.8
+  },
+  {
+    "scene": "S4_novel_task",
+    "algo": "LPT",
+    "change_type": "structural",
+    "delta": 2.126,
+    "rho": 1.0,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "LPT",
+    "degradation_pct": 212.6
+  },
+  {
+    "scene": "S4_novel_task",
+    "algo": "EDF",
+    "change_type": "structural",
+    "delta": 2.861,
+    "rho": 0.779,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 286.1
+  },
+  {
+    "scene": "S4_novel_task",
+    "algo": "WSJF",
+    "change_type": "structural",
+    "delta": 2.658,
+    "rho": 0.816,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "LPT",
+    "degradation_pct": 265.8
+  },
+  {
+    "scene": "S5_objective_change",
+    "algo": "SPT",
+    "change_type": "semantic",
+    "delta": 18.605,
+    "rho": 0.938,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "ResourceEfficient",
+    "degradation_pct": 1860.5
+  },
+  {
+    "scene": "S5_objective_change",
+    "algo": "LPT",
+    "change_type": "semantic",
+    "delta": 20.63,
+    "rho": 0.891,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "ResourceEfficient",
+    "degradation_pct": 2063.0
+  },
+  {
+    "scene": "S5_objective_change",
+    "algo": "EDF",
+    "change_type": "semantic",
+    "delta": 19.102,
+    "rho": 0.923,
+    "sigma": -1.0,
+    "action": "full_evo",
+    "best_fixed": "ResourceEfficient",
+    "degradation_pct": 1910.2
+  },
+  {
+    "scene": "S5_objective_change",
+    "algo": "WSJF",
+    "change_type": "semantic",
+    "delta": 17.634,
+    "rho": 0.987,
+    "sigma": -1.0,
+    "action": "tier1",
+    "best_fixed": "ResourceEfficient",
+    "degradation_pct": 1763.4
+  }
+]

@@ -1,0 +1,446 @@
+[
+  {
+    "scene": "mr_baseline",
+    "seed_algo": "SPT",
+    "seed_ms": 39.96350004387813,
+    "best_ms": 37.98263730102318,
+    "best_code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    priority_score = (efficiency * 0.5 + \n                      packing_score * 0.3 + \n                      task.estimated_runtime * 0.2) * (1 + resource_pressure)\n    \n    return priority_score",
+    "baseline_ms": 37.39440217761692,
+    "baseline_name": "LPT",
+    "improvement_pct": 4.956679822037724,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    priority_score = (efficiency * 0.5 + \n                      packing_score * 0.3 + \n                      task.estimated_runtime * 0.2) * (1 + resource_pressure)\n    \n    return priority_score",
+        "makespan": 37.98263730102318,
+        "std": 2.94452760882967,
+        "fitness": 0.8197444556410062,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_sum = cpu_ratio + mem_ratio + io_ratio\n    \n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_potential = 1 / (resource_sum + 0.001)\n    \n    normalized_runtime = task.estimated_runtime / (task.estimated_runtime + 10)\n    \n    bottleneck_penalty = 1 / (1 + bottleneck_ratio * 3)\n    \n    priority_score = (\n        bottleneck_efficiency * 0.4 +\n        packing_potential * 0.35 +\n        normalized_runtime * 0.25\n    ) * bottleneck_penalty\n    \n    return priority_score",
+        "makespan": 38.18560829169334,
+        "std": 3.2276029201057606,
+        "fitness": 0.8187175018535472,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    resource_sum = cpu_ratio + mem_ratio + io_ratio\n    \n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1 / (resource_sum + 0.001)\n    \n    runtime_factor = task.estimated_runtime / (task.estimated_runtime + 15)\n    \n    resource_balance = 1 / (1 + abs(cpu_ratio - mem_ratio) + abs(mem_ratio - io_ratio) + abs(io_ratio - cpu_ratio))\n    \n    priority_score = (\n        bottleneck_efficiency * 0.35 +\n        packing_score * 0.30 +\n        runtime_factor * 0.20 +\n        resource_balance * 0.15\n    )\n    \n    return priority_score",
+        "makespan": 38.174559499109534,
+        "std": 2.8515020221618794,
+        "fitness": 0.8187734044204772,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_baseline",
+    "seed_algo": "LPT",
+    "seed_ms": 37.39440217761692,
+    "best_ms": 37.39440217761692,
+    "best_code": "def priority(task):\n    return task.estimated_runtime",
+    "baseline_ms": 37.39440217761692,
+    "baseline_name": "LPT",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    # Identify bottleneck resource (most scarce relative to capacity)\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Calculate resource efficiency: runtime per bottleneck unit\n    # Higher efficiency = better use of scarce resource\n    efficiency = task.estimated_runtime / bottleneck_ratio if bottleneck_ratio > 0 else 0\n    \n    # Calculate total normalized resource footprint\n    # Weighted sum considering relative scarcity of each resource\n    total_footprint = cpu_ratio + mem_ratio * (32/100) + io_ratio * (16/100)\n    \n    # Combine factors: prioritize efficient use of bottleneck resources\n    # while also considering task duration and overall footprint\n    priority_score = (\n        efficiency * 0.5 +  # Resource efficiency component\n        task.estimated_runtime * 0.3 +  # Critical path consideration\n        (1 / (total_footprint + 0.01)) * 0.2  # Favor smaller tasks for better packing\n    )\n    \n    return priority_score",
+        "makespan": 38.09015980297677,
+        "std": 2.921102751498629,
+        "fitness": 0.8192004338561505,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_sum = cpu_ratio + mem_ratio + io_ratio\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (resource_sum + 0.01)\n    \n    critical_path_factor = task.estimated_runtime * (1 + bottleneck_ratio)\n    \n    priority_score = (\n        efficiency * 0.45 +\n        critical_path_factor * 0.35 +\n        packing_score * 0.20\n    )\n    \n    return priority_score",
+        "makespan": 38.363938036106916,
+        "std": 2.7356756399130564,
+        "fitness": 0.817815223129689,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    avg_ratio = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    resource_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.01)\n    \n    critical_factor = task.estimated_runtime * (1 + bottleneck_ratio)\n    \n    balance_penalty = abs(cpu_ratio - mem_ratio) + abs(mem_ratio - io_ratio) + abs(io_ratio - cpu_ratio)\n    balanced_packing = packing_score * (1.0 / (balance_penalty + 0.1))\n    \n    priority_score = (\n        resource_efficiency * 0.40 +\n        critical_factor * 0.30 +\n        balanced_packing * 0.30\n    )\n    \n    return priority_score",
+        "makespan": 38.08347428736439,
+        "std": 2.826469359737624,
+        "fitness": 0.8192342599490151,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_baseline",
+    "seed_algo": "MultiEff",
+    "seed_ms": 38.64930191323382,
+    "best_ms": 38.069851301296765,
+    "best_code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    avg_ratio = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    resource_volume = cpu_ratio * mem_ratio * io_ratio\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    critical_factor = task.estimated_runtime * (1.0 + bottleneck_ratio)\n    \n    imbalance_penalty = abs(cpu_ratio - mem_ratio) + abs(mem_ratio - io_ratio) + abs(io_ratio - cpu_ratio)\n    \n    priority_score = (\n        efficiency * 0.40 +\n        packing_score * 0.30 +\n        critical_factor * 0.20 -\n        imbalance_penalty * 0.05 -\n        resource_volume * 0.05\n    )\n    \n    return priority_score",
+    "baseline_ms": 37.39440217761692,
+    "baseline_name": "LPT",
+    "improvement_pct": 1.499252465770018,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    # Identify bottleneck resource\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Resource pressure score - how much this task consumes across all resources\n    resource_pressure = cpu_ratio + mem_ratio + io_ratio\n    \n    # Efficiency: runtime per bottleneck unit (higher = better use of bottleneck)\n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    # Packing friendliness: inverse of maximum dimension (smaller max ratio = easier to pack)\n    packing_score = 1.0 / (bottleneck_ratio + 0.001)\n    \n    # Critical path adjustment: favor longer tasks but balance with resource efficiency\n    critical_factor = task.estimated_runtime * (1.0 - bottleneck_ratio)\n    \n    # Combined priority: emphasize efficiency and packing, moderate by critical path\n    priority_score = (efficiency * 0.4 + \n                     packing_score * 0.3 + \n                     critical_factor * 0.2 - \n                     resource_pressure * 0.1)\n    \n    return priority_score",
+        "makespan": 38.406813957750714,
+        "std": 3.0334454900187064,
+        "fitness": 0.8175982877441074,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    avg_ratio = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    resource_volume = cpu_ratio * mem_ratio * io_ratio\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_friendliness = 1.0 / (bottleneck_ratio + 0.001)\n    \n    normalized_runtime = task.estimated_runtime / (task.estimated_runtime + 10)\n    \n    critical_factor = task.estimated_runtime * (1.0 - bottleneck_ratio)\n    \n    priority_score = (\n        efficiency * 0.35 +\n        packing_friendliness * 0.25 +\n        critical_factor * 0.20 -\n        resource_volume * 0.15 +\n        normalized_runtime * 0.05\n    )\n    \n    return priority_score",
+        "makespan": 38.406813957750714,
+        "std": 3.0334454900187064,
+        "fitness": 0.8175982877441074,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    avg_ratio = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    resource_volume = cpu_ratio * mem_ratio * io_ratio\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    critical_factor = task.estimated_runtime * (1.0 + bottleneck_ratio)\n    \n    imbalance_penalty = abs(cpu_ratio - mem_ratio) + abs(mem_ratio - io_ratio) + abs(io_ratio - cpu_ratio)\n    \n    priority_score = (\n        efficiency * 0.40 +\n        packing_score * 0.30 +\n        critical_factor * 0.20 -\n        imbalance_penalty * 0.05 -\n        resource_volume * 0.05\n    )\n    \n    return priority_score",
+        "makespan": 38.069851301296765,
+        "std": 2.9198203366492406,
+        "fitness": 0.8193031869276561,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S6_memory",
+    "seed_algo": "SPT",
+    "seed_ms": 127.46994577659287,
+    "best_ms": 127.46994577659287,
+    "best_code": "def priority(task):\n    return -task.estimated_runtime",
+    "baseline_ms": 120.22085489196795,
+    "baseline_name": "Runtime/Mem",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_pressure = task.memory_need / 32\n    \n    cpu_work_per_memory = task.resource_need / (task.memory_need + 0.1)\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.01)\n    \n    small_task_boost = 1.0 / (task.memory_need + 0.1)\n    \n    combined_score = (\n        efficiency * 0.4 +\n        cpu_work_per_memory * 0.3 +\n        small_task_boost * 0.2 -\n        memory_pressure * 0.1\n    )\n    \n    return combined_score",
+        "makespan": 128.30145154589195,
+        "std": 14.679010678866037,
+        "fitness": 0.36276659855255305,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_pressure = task.memory_need / 32\n    cpu_work_per_memory = task.resource_need / (task.memory_need + 0.01)\n    \n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.01)\n    \n    memory_footprint_penalty = memory_pressure * 0.8\n    \n    combined_score = (\n        bottleneck_efficiency * 0.35 +\n        cpu_work_per_memory * 0.25 +\n        packing_score * 0.25 -\n        memory_footprint_penalty * 0.15\n    )\n    \n    return combined_score",
+        "makespan": 128.30145154589195,
+        "std": 14.679010678866037,
+        "fitness": 0.36276659855255305,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_pressure = task.memory_need / 32\n    cpu_per_memory = task.resource_need / (task.memory_need + 0.01)\n    runtime_per_memory = task.estimated_runtime / (task.memory_need + 0.01)\n    \n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.01)\n    \n    memory_footprint_penalty = memory_pressure * 1.2\n    \n    combined_score = (\n        bottleneck_efficiency * 0.4 +\n        cpu_per_memory * 0.3 +\n        runtime_per_memory * 0.2 +\n        packing_score * 0.1 -\n        memory_footprint_penalty * 0.2\n    )\n    \n    return combined_score",
+        "makespan": 128.30145154589195,
+        "std": 14.679010678866037,
+        "fitness": 0.36276659855255305,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S6_memory",
+    "seed_algo": "LPT",
+    "seed_ms": 123.86499572270313,
+    "best_ms": 123.86499572270313,
+    "best_code": "def priority(task):\n    return task.estimated_runtime",
+    "baseline_ms": 120.22085489196795,
+    "baseline_name": "Runtime/Mem",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_pressure = task.memory_need / 32\n    cpu_efficiency = task.resource_need / (task.memory_need + 0.1)\n    \n    combined_footprint = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    priority_score = (\n        task.estimated_runtime * 0.4 +\n        cpu_efficiency * 0.3 -\n        memory_pressure * 0.2 -\n        combined_footprint * 0.1\n    ) / (bottleneck_ratio + 0.01)\n    \n    return priority_score",
+        "makespan": 128.44220912701496,
+        "std": 14.368135536537812,
+        "fitness": 0.36205442027244233,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_pressure = task.memory_need / 32\n    cpu_efficiency = task.resource_need / (task.memory_need + 0.1)\n    \n    combined_footprint = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    priority_score = (\n        task.estimated_runtime * 0.4 +\n        cpu_efficiency * 0.3 -\n        memory_pressure * 0.2 -\n        combined_footprint * 0.1\n    ) / (bottleneck_ratio + 0.01)\n    \n    return priority_score",
+        "makespan": 128.44220912701496,
+        "std": 14.368135536537812,
+        "fitness": 0.36205442027244233,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_pressure = task.memory_need / 32\n    cpu_efficiency = task.resource_need / (task.memory_need + 0.1)\n    \n    combined_footprint = (cpu_ratio + mem_ratio + io_ratio) / 3\n    \n    priority_score = (\n        task.estimated_runtime * 0.4 +\n        cpu_efficiency * 0.3 -\n        memory_pressure * 0.2 -\n        combined_footprint * 0.1\n    ) / (bottleneck_ratio + 0.01)\n    \n    return priority_score",
+        "makespan": 128.44220912701496,
+        "std": 14.368135536537812,
+        "fitness": 0.36205442027244233,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S6_memory",
+    "seed_algo": "MultiEff",
+    "seed_ms": 128.99773661702392,
+    "best_ms": 128.30145154589195,
+    "best_code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 100.0\n    mem_ratio = task.memory_need / 32.0\n    io_ratio = task.io_need / 16.0\n    \n    # Identify bottleneck resource (memory is known to be primary)\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Memory pressure factor (inverse of memory usage)\n    # Favors tasks using less memory to enable more parallelism\n    memory_pressure_factor = 1.0 / (task.memory_need + 0.1)\n    \n    # CPU work per memory unit (efficiency for memory-constrained scenario)\n    cpu_per_memory = task.resource_need / (task.memory_need + 0.1)\n    \n    # Resource footprint (smaller tasks pack better)\n    total_footprint = cpu_ratio + mem_ratio + io_ratio\n    \n    # Bottleneck efficiency: runtime per bottleneck unit\n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.01)\n    \n    # Combined priority: balance efficiency, memory pressure, and task duration\n    # Weights tuned for memory-constrained scenario\n    priority_score = (\n        2.5 * bottleneck_efficiency +          # Bottleneck efficiency (primary)\n        1.8 * memory_pressure_factor +         # Memory pressure relief\n        1.2 * cpu_per_memory +                 # CPU work per memory unit\n        0.8 * task.estimated_runtime -         # Critical path consideration\n        0.5 * total_footprint                  # Penalize large footprint\n    )\n    \n    return priority_score",
+    "baseline_ms": 120.22085489196795,
+    "baseline_name": "Runtime/Mem",
+    "improvement_pct": 0.5397653396037039,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 100.0\n    mem_ratio = task.memory_need / 32.0\n    io_ratio = task.io_need / 16.0\n    \n    # Identify bottleneck resource (memory is known to be primary)\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Memory pressure factor (inverse of memory usage)\n    # Favors tasks using less memory to enable more parallelism\n    memory_pressure_factor = 1.0 / (task.memory_need + 0.1)\n    \n    # CPU work per memory unit (efficiency for memory-constrained scenario)\n    cpu_per_memory = task.resource_need / (task.memory_need + 0.1)\n    \n    # Resource footprint (smaller tasks pack better)\n    total_footprint = cpu_ratio + mem_ratio + io_ratio\n    \n    # Bottleneck efficiency: runtime per bottleneck unit\n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.01)\n    \n    # Combined priority: balance efficiency, memory pressure, and task duration\n    # Weights tuned for memory-constrained scenario\n    priority_score = (\n        2.5 * bottleneck_efficiency +          # Bottleneck efficiency (primary)\n        1.8 * memory_pressure_factor +         # Memory pressure relief\n        1.2 * cpu_per_memory +                 # CPU work per memory unit\n        0.8 * task.estimated_runtime -         # Critical path consideration\n        0.5 * total_footprint                  # Penalize large footprint\n    )\n    \n    return priority_score",
+        "makespan": 128.30145154589195,
+        "std": 14.679010678866037,
+        "fitness": 0.36276659855255305,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    # Calculate resource ratios relative to total capacity\n    cpu_ratio = task.resource_need / 100.0\n    mem_ratio = task.memory_need / 32.0\n    io_ratio = task.io_need / 16.0\n    \n    # Bottleneck identification - memory is known primary constraint\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Memory pressure factor (inverse of memory usage with strong emphasis)\n    memory_pressure_factor = 1.0 / (task.memory_need + 0.01)\n    \n    # CPU work per memory unit - critical for memory-constrained scenario\n    cpu_per_memory = task.resource_need / (task.memory_need + 0.01)\n    \n    # Bottleneck efficiency: runtime per bottleneck resource consumption\n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    # Resource footprint penalty (weighted by scarcity)\n    weighted_footprint = (cpu_ratio * 0.3 + mem_ratio * 0.5 + io_ratio * 0.2)\n    \n    # Memory utilization penalty (quadratic to strongly discourage large memory tasks)\n    memory_penalty = (mem_ratio ** 2) * 10.0\n    \n    # Combined priority with tuned weights for memory-constrained scenario\n    priority_score = (\n        3.2 * bottleneck_efficiency +          # Primary: bottleneck efficiency\n        2.5 * memory_pressure_factor +         # Strong memory pressure relief\n        1.8 * cpu_per_memory +                 # CPU work per scarce memory\n        1.0 * task.estimated_runtime -         # Critical path consideration\n        1.5 * weighted_footprint -             # Penalize overall footprint\n        2.0 * memory_penalty                   # Strong penalty for high memory usage\n    )\n    \n    return priority_score",
+        "makespan": 128.30145154589195,
+        "std": 14.679010678866037,
+        "fitness": 0.36276659855255305,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100.0\n    mem_ratio = task.memory_need / 32.0\n    io_ratio = task.io_need / 16.0\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    memory_efficiency = task.estimated_runtime / (task.memory_need + 0.01)\n    cpu_per_memory = task.resource_need / (task.memory_need + 0.01)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.01)\n    \n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    memory_pressure = 1.0 / (mem_ratio + 0.01)\n    \n    critical_path_factor = task.estimated_runtime * (1.0 - bottleneck_ratio)\n    \n    priority_score = (\n        2.8 * bottleneck_efficiency +\n        2.2 * memory_efficiency +\n        1.9 * cpu_per_memory +\n        1.5 * packing_score +\n        1.3 * memory_pressure +\n        0.8 * critical_path_factor\n    )\n    \n    return priority_score",
+        "makespan": 128.30145154589195,
+        "std": 14.679010678866037,
+        "fitness": 0.36276659855255305,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S7_io",
+    "seed_algo": "SPT",
+    "seed_ms": 85.77370300108136,
+    "best_ms": 85.77370300108136,
+    "best_code": "def priority(task):\n    return -task.estimated_runtime",
+    "baseline_ms": 84.2426513871463,
+    "baseline_name": "CPU-Eff",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    io_efficiency = task.estimated_runtime / (io_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    bottleneck_aware_runtime = task.estimated_runtime * (1 + bottleneck_ratio)\n    \n    priority_score = (\n        0.5 * io_efficiency +  \n        0.3 * packing_score -  \n        0.2 * bottleneck_aware_runtime  \n    )\n    \n    return priority_score",
+        "makespan": 89.55888492272427,
+        "std": 5.642640293878894,
+        "fitness": 0.5587888251681734,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    io_efficiency = task.estimated_runtime / (io_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    bottleneck_aware_runtime = task.estimated_runtime * (1 + bottleneck_ratio)\n    \n    priority_score = (\n        0.5 * io_efficiency +  \n        0.3 * packing_score -  \n        0.2 * bottleneck_aware_runtime  \n    )\n    \n    return priority_score",
+        "makespan": 89.55888492272427,
+        "std": 5.642640293878894,
+        "fitness": 0.5587888251681734,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    io_scarcity_factor = 2.0\n    cpu_scarcity_factor = 0.5\n    mem_scarcity_factor = 0.3\n    \n    weighted_resource_sum = (\n        cpu_scarcity_factor * cpu_ratio +\n        mem_scarcity_factor * mem_ratio +\n        io_scarcity_factor * io_ratio\n    )\n    \n    bottleneck_efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_potential = 1.0 / (weighted_resource_sum + 0.001)\n    \n    runtime_urgency = task.estimated_runtime * (1 + bottleneck_ratio)\n    \n    priority_score = (\n        0.45 * bottleneck_efficiency +\n        0.35 * packing_potential -\n        0.20 * runtime_urgency\n    )\n    \n    return priority_score",
+        "makespan": 89.16547639641279,
+        "std": 5.466230255140882,
+        "fitness": 0.5607793183651583,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S7_io",
+    "seed_algo": "LPT",
+    "seed_ms": 84.42290917616057,
+    "best_ms": 84.42290917616057,
+    "best_code": "def priority(task):\n    return task.estimated_runtime",
+    "baseline_ms": 84.2426513871463,
+    "baseline_name": "CPU-Eff",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    if bottleneck_ratio == io_ratio:\n        bottleneck_efficiency = task.estimated_runtime / (io_ratio + 1e-9)\n        packing_score = 1.0 / (task.io_need + 1)\n        return bottleneck_efficiency * packing_score\n    elif bottleneck_ratio == cpu_ratio:\n        bottleneck_efficiency = task.estimated_runtime / (cpu_ratio + 1e-9)\n        packing_score = 1.0 / (task.resource_need + 1)\n        return bottleneck_efficiency * packing_score * 0.8\n    else:\n        bottleneck_efficiency = task.estimated_runtime / (mem_ratio + 1e-9)\n        packing_score = 1.0 / (task.memory_need + 1)\n        return bottleneck_efficiency * packing_score * 0.7",
+        "makespan": 88.43302125076235,
+        "std": 5.490761647413086,
+        "fitness": 0.5644852547824066,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # IO is the primary bottleneck - prioritize tasks that use it efficiently\n    io_efficiency = task.estimated_runtime / (io_ratio + 1e-9)\n    \n    # Packing score favors smaller tasks in bottleneck dimension\n    packing_score = 1.0 / (task.io_need + 1)\n    \n    # Runtime factor ensures long tasks don't get stuck\n    runtime_factor = task.estimated_runtime ** 0.5\n    \n    # Resource footprint penalty for tasks that consume many resources\n    total_footprint = cpu_ratio + mem_ratio + io_ratio\n    footprint_penalty = 1.0 / (total_footprint + 0.1)\n    \n    # Combine factors with emphasis on IO efficiency\n    if bottleneck_ratio == io_ratio:\n        return io_efficiency * packing_score * runtime_factor * footprint_penalty\n    else:\n        # For non-IO bottleneck tasks, still consider IO but with less weight\n        return io_efficiency * packing_score * runtime_factor * footprint_penalty * 0.7",
+        "makespan": 87.89974645088891,
+        "std": 4.959024887004387,
+        "fitness": 0.5671834165920241,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Primary: IO efficiency (work per bottleneck unit)\n    io_efficiency = task.estimated_runtime / (io_ratio + 1e-9)\n    \n    # Secondary: Packing density - favor tasks that leave more room for others\n    # Weight dimensions by scarcity: IO is most constrained\n    packing_score = 1.0 / (0.1 * cpu_ratio + 0.3 * mem_ratio + 0.6 * io_ratio + 0.01)\n    \n    # Tertiary: Critical path consideration - avoid delaying long tasks too much\n    # But scale by bottleneck impact: long tasks that hog IO should NOT be prioritized\n    runtime_factor = task.estimated_runtime ** 0.3 if io_ratio < 0.3 else task.estimated_runtime ** 0.1\n    \n    # Combine: Emphasize IO efficiency, moderate packing, light runtime consideration\n    return io_efficiency * packing_score * runtime_factor",
+        "makespan": 88.45139696352228,
+        "std": 5.640659745624865,
+        "fitness": 0.5643922808665097,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S7_io",
+    "seed_algo": "MultiEff",
+    "seed_ms": 87.13419776614776,
+    "best_ms": 87.13419776614776,
+    "best_code": "def priority(task):\n    return -(task.resource_need + getattr(task, 'memory_need', 4) * 3 + getattr(task, 'io_need', 2) * 5)",
+    "baseline_ms": 84.2426513871463,
+    "baseline_name": "CPU-Eff",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    io_efficiency = task.estimated_runtime / (io_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    runtime_weight = task.estimated_runtime ** 0.7\n    \n    priority_value = (io_efficiency * 2.5 + \n                      packing_score * 1.2 + \n                      runtime_weight * 0.8) / (bottleneck_ratio + 0.1)\n    \n    return priority_value",
+        "makespan": 88.53238650490783,
+        "std": 5.4936969221595495,
+        "fitness": 0.5639825054794171,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    io_efficiency = task.estimated_runtime / (io_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    runtime_weight = task.estimated_runtime ** 0.5\n    \n    bottleneck_penalty = 1.0 / (bottleneck_ratio + 0.01)\n    \n    io_scarcity_factor = 1.0 / (io_ratio + 0.01)\n    \n    priority_value = (io_efficiency * 3.0 + \n                      packing_score * 1.5 + \n                      runtime_weight * 0.6 + \n                      bottleneck_penalty * 1.2 + \n                      io_scarcity_factor * 2.0)\n    \n    return priority_value",
+        "makespan": 87.92293176706144,
+        "std": 5.159617593659527,
+        "fitness": 0.5670661079649233,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 100\n    mem_ratio = task.memory_need / 32\n    io_ratio = task.io_need / 16\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    io_efficiency = task.estimated_runtime / (io_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    runtime_weight = task.estimated_runtime ** 0.7\n    \n    bottleneck_penalty = 1.0 / (bottleneck_ratio + 0.01)\n    \n    io_scarcity_factor = 1.0 / (io_ratio + 0.01)\n    \n    priority_value = (io_efficiency * 2.5 + \n                      packing_score * 2.0 + \n                      runtime_weight * 0.8 + \n                      bottleneck_penalty * 1.0 + \n                      io_scarcity_factor * 1.5)\n    \n    return priority_value",
+        "makespan": 87.97962371952252,
+        "std": 4.860615440145604,
+        "fitness": 0.5667792688698087,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "seed_algo": "SPT",
+    "seed_ms": 104.22240231872313,
+    "best_ms": 104.22240231872313,
+    "best_code": "def priority(task):\n    return -task.estimated_runtime",
+    "baseline_ms": 99.5720973424874,
+    "baseline_name": "LPT",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25)\n    \n    efficiency = task.estimated_runtime / bottleneck_ratio if bottleneck_ratio > 0 else float('inf')\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.01)\n    \n    priority_value = (efficiency * 0.5 + \n                      task.estimated_runtime * (1 + resource_pressure) * 0.3 + \n                      packing_score * 0.2)\n    \n    return priority_value",
+        "makespan": 109.31729435498714,
+        "std": 10.908049520190033,
+        "fitness": 0.46019057295224747,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25)\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25 + 0.01)\n    \n    criticality = task.estimated_runtime * (1 + resource_pressure)\n    \n    priority_value = (efficiency * 0.6 + \n                      criticality * 0.25 + \n                      packing_score * 0.15)\n    \n    return priority_value",
+        "makespan": 109.78954700840502,
+        "std": 10.921677332353324,
+        "fitness": 0.4577940165459428,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25)\n    \n    efficiency = task.estimated_runtime / (bottleneck_ratio + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25 + 0.01)\n    \n    criticality = task.estimated_runtime * (1 + resource_pressure)\n    \n    priority_value = (efficiency * 0.6 + \n                      criticality * 0.25 + \n                      packing_score * 0.15)\n    \n    return priority_value",
+        "makespan": 109.78954700840502,
+        "std": 10.921677332353324,
+        "fitness": 0.4577940165459428,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "seed_algo": "LPT",
+    "seed_ms": 99.5720973424874,
+    "best_ms": 99.5720973424874,
+    "best_code": "def priority(task):\n    return task.estimated_runtime",
+    "baseline_ms": 99.5720973424874,
+    "baseline_name": "LPT",
+    "improvement_pct": 0.0,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25)\n    \n    efficiency = task.estimated_runtime / (bottleneck + 0.001)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 0.001)\n    \n    priority_score = (efficiency * 0.5 + \n                      task.estimated_runtime * (1 + resource_pressure) * 0.3 + \n                      packing_score * 0.2)\n    \n    return priority_score",
+        "makespan": 109.31729435498714,
+        "std": 10.908049520190033,
+        "fitness": 0.46019057295224747,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25)\n    \n    efficiency = task.estimated_runtime / (bottleneck + 1e-6)\n    \n    packing_score = 1.0 / (cpu_ratio + mem_ratio + io_ratio + 1e-6)\n    \n    criticality = task.estimated_runtime * (1 + resource_pressure)\n    \n    priority_score = (efficiency * 0.6 + \n                      criticality * 0.25 + \n                      packing_score * 0.15)\n    \n    return priority_score",
+        "makespan": 109.78954700840502,
+        "std": 10.921677332353326,
+        "fitness": 0.4577940165459428,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_pressure = (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25)\n    \n    efficiency = task.estimated_runtime / (bottleneck + 1e-6)\n    \n    packing_score = 1.0 / (cpu_ratio * 0.4 + mem_ratio * 0.35 + io_ratio * 0.25 + 1e-6)\n    \n    criticality = task.estimated_runtime * (1 + resource_pressure)\n    \n    priority_score = (efficiency * 0.5 + \n                      criticality * 0.3 + \n                      packing_score * 0.2)\n    \n    return priority_score",
+        "makespan": 110.22244892679109,
+        "std": 11.564594450584963,
+        "fitness": 0.4555971546367485,
+        "beats_baseline": "False"
+      }
+    ]
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "seed_algo": "MultiEff",
+    "seed_ms": 109.71264130850307,
+    "best_ms": 108.40948630579749,
+    "best_code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    # Identify bottleneck resource and its ratio\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Calculate resource pressure (sum of all ratios)\n    resource_pressure = cpu_ratio + mem_ratio + io_ratio\n    \n    # Calculate efficiency: runtime per bottleneck unit\n    efficiency = task.estimated_runtime / bottleneck_ratio if bottleneck_ratio > 0 else 0\n    \n    # Weight factors based on scene analysis (tight resources)\n    # Favor tasks that are efficient on bottleneck AND have small footprint\n    # Combine efficiency with inverse of resource pressure to balance packing\n    priority_score = efficiency / (1 + resource_pressure)\n    \n    # Scale by runtime to ensure long tasks don't get excessively delayed\n    priority_score *= (1 + task.estimated_runtime / 100)\n    \n    return priority_score",
+    "baseline_ms": 99.5720973424874,
+    "baseline_name": "LPT",
+    "improvement_pct": 1.1877892895142406,
+    "beats_baseline": "False",
+    "history": [
+      {
+        "iteration": 0,
+        "code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    # Identify bottleneck resource and its ratio\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Calculate resource pressure (sum of all ratios)\n    resource_pressure = cpu_ratio + mem_ratio + io_ratio\n    \n    # Calculate efficiency: runtime per bottleneck unit\n    efficiency = task.estimated_runtime / bottleneck_ratio if bottleneck_ratio > 0 else 0\n    \n    # Weight factors based on scene analysis (tight resources)\n    # Favor tasks that are efficient on bottleneck AND have small footprint\n    # Combine efficiency with inverse of resource pressure to balance packing\n    priority_score = efficiency / (1 + resource_pressure)\n    \n    # Scale by runtime to ensure long tasks don't get excessively delayed\n    priority_score *= (1 + task.estimated_runtime / 100)\n    \n    return priority_score",
+        "makespan": 108.40948630579749,
+        "std": 9.262179415305097,
+        "fitness": 0.4647974569585831,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 1,
+        "code": "def priority(task):\n    # Calculate resource ratios\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    # Bottleneck identification\n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    # Resource pressure (sum of squared ratios emphasizes imbalance)\n    resource_pressure = cpu_ratio**2 + mem_ratio**2 + io_ratio**2\n    \n    # Efficiency: work per bottleneck unit\n    efficiency = task.estimated_runtime / bottleneck_ratio if bottleneck_ratio > 0 else 0\n    \n    # Compactness: favors tasks that leave more room for others\n    # Inverse of maximum dimension plus sum of dimensions\n    compactness = 1.0 / (bottleneck_ratio + 0.1 * (cpu_ratio + mem_ratio + io_ratio))\n    \n    # Critical path adjustment: long tasks get moderate boost\n    runtime_factor = min(2.0, 1.0 + task.estimated_runtime / 50.0)\n    \n    # Combined priority: efficiency \u00d7 compactness \u00d7 runtime_factor\n    # Divided by resource_pressure to penalize imbalanced tasks\n    priority_score = (efficiency * compactness * runtime_factor) / (1.0 + resource_pressure)\n    \n    return priority_score",
+        "makespan": 109.64782743237406,
+        "std": 9.25630433380303,
+        "fitness": 0.4585132056396995,
+        "beats_baseline": "False"
+      },
+      {
+        "iteration": 2,
+        "code": "def priority(task):\n    cpu_ratio = task.resource_need / 80\n    mem_ratio = task.memory_need / 24\n    io_ratio = task.io_need / 12\n    \n    bottleneck_ratio = max(cpu_ratio, mem_ratio, io_ratio)\n    \n    resource_footprint = cpu_ratio + mem_ratio + io_ratio\n    \n    efficiency = task.estimated_runtime / bottleneck_ratio if bottleneck_ratio > 0 else 0\n    \n    packing_score = 1.0 / (bottleneck_ratio + 0.05 * resource_footprint)\n    \n    critical_path_boost = min(1.8, 1.0 + task.estimated_runtime / 60.0)\n    \n    resource_balance = 1.0 / (1.0 + abs(cpu_ratio - mem_ratio) + abs(mem_ratio - io_ratio) + abs(io_ratio - cpu_ratio))\n    \n    priority_score = efficiency * packing_score * critical_path_boost * resource_balance\n    \n    return priority_score",
+        "makespan": 108.50103910584505,
+        "std": 9.21899990761273,
+        "fitness": 0.46433285088833415,
+        "beats_baseline": "False"
+      }
+    ]
+  }
+]

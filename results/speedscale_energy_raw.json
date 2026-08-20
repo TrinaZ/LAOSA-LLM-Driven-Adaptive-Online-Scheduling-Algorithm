@@ -1,0 +1,402 @@
+[
+  {
+    "run_id": "speedscale_ctrl_seed0_SPT",
+    "condition": "control",
+    "seed": 0,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed0_LPT",
+    "condition": "control",
+    "seed": 0,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed0_EDF",
+    "condition": "control",
+    "seed": 0,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed0_WSJF",
+    "condition": "control",
+    "seed": 0,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed0_ResourceEfficient",
+    "condition": "control",
+    "seed": 0,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed1_SPT",
+    "condition": "control",
+    "seed": 1,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed1_LPT",
+    "condition": "control",
+    "seed": 1,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed1_EDF",
+    "condition": "control",
+    "seed": 1,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed1_WSJF",
+    "condition": "control",
+    "seed": 1,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed1_ResourceEfficient",
+    "condition": "control",
+    "seed": 1,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed2_SPT",
+    "condition": "control",
+    "seed": 2,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed2_LPT",
+    "condition": "control",
+    "seed": 2,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed2_EDF",
+    "condition": "control",
+    "seed": 2,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed2_WSJF",
+    "condition": "control",
+    "seed": 2,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed2_ResourceEfficient",
+    "condition": "control",
+    "seed": 2,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed3_SPT",
+    "condition": "control",
+    "seed": 3,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed3_LPT",
+    "condition": "control",
+    "seed": 3,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed3_EDF",
+    "condition": "control",
+    "seed": 3,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed3_WSJF",
+    "condition": "control",
+    "seed": 3,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed3_ResourceEfficient",
+    "condition": "control",
+    "seed": 3,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed4_SPT",
+    "condition": "control",
+    "seed": 4,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed4_LPT",
+    "condition": "control",
+    "seed": 4,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed4_EDF",
+    "condition": "control",
+    "seed": 4,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed4_WSJF",
+    "condition": "control",
+    "seed": 4,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed4_ResourceEfficient",
+    "condition": "control",
+    "seed": 4,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed5_SPT",
+    "condition": "control",
+    "seed": 5,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed5_LPT",
+    "condition": "control",
+    "seed": 5,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed5_EDF",
+    "condition": "control",
+    "seed": 5,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed5_WSJF",
+    "condition": "control",
+    "seed": 5,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed5_ResourceEfficient",
+    "condition": "control",
+    "seed": 5,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed6_SPT",
+    "condition": "control",
+    "seed": 6,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed6_LPT",
+    "condition": "control",
+    "seed": 6,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed6_EDF",
+    "condition": "control",
+    "seed": 6,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed6_WSJF",
+    "condition": "control",
+    "seed": 6,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed6_ResourceEfficient",
+    "condition": "control",
+    "seed": 6,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed7_SPT",
+    "condition": "control",
+    "seed": 7,
+    "baseline": "SPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed7_LPT",
+    "condition": "control",
+    "seed": 7,
+    "baseline": "LPT",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed7_EDF",
+    "condition": "control",
+    "seed": 7,
+    "baseline": "EDF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed7_WSJF",
+    "condition": "control",
+    "seed": 7,
+    "baseline": "WSJF",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 0,
+    "error": null
+  },
+  {
+    "run_id": "speedscale_ctrl_seed7_ResourceEfficient",
+    "condition": "control",
+    "seed": 7,
+    "baseline": "ResourceEfficient",
+    "beats_best": false,
+    "improvement_pct": 0.0,
+    "llm_calls": 4,
+    "error": null
+  }
+]

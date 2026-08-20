@@ -1,0 +1,227 @@
+[
+  {
+    "scene_id": "dag_S2_resource_drop",
+    "scene_features": {
+      "scene_type": "dag_S2_resource_drop",
+      "degradation_pct": 51.26930568617358,
+      "total_resources": 40,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "\ndef priority(task):\n    return task.estimated_runtime\n",
+    "makespan": 201.32078830751036,
+    "best_fixed_makespan": 201.32078830751036,
+    "improvement_over_fixed": 0.0,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "LPT"
+    }
+  },
+  {
+    "scene_id": "dag_S2_resource_drop",
+    "scene_features": {
+      "scene_type": "dag_S2_resource_drop",
+      "degradation_pct": 50.190155392856916,
+      "total_resources": 40,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When resources are scarce, prioritize tasks that block the most downstream work AND are on the critical path, using a multiplicative combination to amplify their importance\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.1)\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 187.09253836323833,
+    "best_fixed_makespan": 201.32078830751038,
+    "improvement_over_fixed": 7.07,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "SPT"
+    }
+  },
+  {
+    "scene_id": "dag_S2_resource_drop",
+    "scene_features": {
+      "scene_type": "dag_S2_resource_drop",
+      "degradation_pct": 51.26930568617358,
+      "total_resources": 40,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When high out-degree tasks block downstream execution, prioritize them even more aggressively by combining critical path with exponential out-degree scaling, and add a time-aware component to ensure long-running tasks start earlier\n    critical_path = graph_context.critical_path_remaining(task)\n    \n    out_degree = graph_context.out_degree(task)\n    \n    # CRITICAL FIX: More aggressive exponential scaling for high out-degree tasks\n    # This directly addresses the bottleneck where tasks with many successors block downstream execution\n    # Using out_degree^0.9 instead of ^0.8 for stronger amplification of high-degree tasks\n    out_degree_impact = 1 + (out_degree ** 0.9) * 0.8\n    \n    # Add time-aware component: prioritize longer tasks earlier to prevent end-stage blocking\n    # This ensures tasks with longer runtimes don't get delayed until the end\n    runtime_factor = 1 + (task.estimated_runtime ** 0.5) * 0.1\n    \n    # Combine factors: critical path \u00d7 out-degree impact \u00d7 runtime awareness\n    # This ensures high-degree, long-running tasks on the critical path get highest priority\n    priority_score = critical_path * out_degree_impact * runtime_factor\n    \n    return priority_score",
+    "makespan": 188.2591845658835,
+    "best_fixed_makespan": 201.32078830751036,
+    "improvement_over_fixed": 6.49,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "LPT"
+    }
+  },
+  {
+    "scene_id": "dag_S2_resource_drop",
+    "scene_features": {
+      "scene_type": "dag_S2_resource_drop",
+      "degradation_pct": 49.58986333581568,
+      "total_resources": 40,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When high out-degree tasks block downstream execution, prioritize them even more aggressively by making out-degree a stronger multiplier on critical path, and add a term that specifically boosts tasks with both high out-degree AND large resource needs\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a stronger multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.15)  # Increased from 0.1 to 0.15\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # NEW: Add a specific boost for tasks that have both high out-degree AND large resource needs\n    # These are the worst bottlenecks - they block many successors AND take long to execute\n    bottleneck_boost = 1.0 + (graph_context.out_degree(task) * task.resource_need * 0.02)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree and bottleneck boost\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * bottleneck_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 186.82005668033023,
+    "best_fixed_makespan": 201.32078830751036,
+    "improvement_over_fixed": 7.2,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "EDF"
+    }
+  },
+  {
+    "scene_id": "dag_S2_resource_drop",
+    "scene_features": {
+      "scene_type": "dag_S2_resource_drop",
+      "degradation_pct": 50.190155392856894,
+      "total_resources": 40,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When resources are scarce, prioritize tasks that block the most downstream work AND are on the critical path, using a multiplicative combination to amplify their importance\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.1)\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 187.09253836323833,
+    "best_fixed_makespan": 201.32078830751033,
+    "improvement_over_fixed": 7.07,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "WSJF"
+    }
+  },
+  {
+    "scene_id": "dag_S5_objective_change",
+    "scene_features": {
+      "scene_type": "dag_S5_objective_change",
+      "degradation_pct": 0.0,
+      "total_resources": 64,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        0.5,
+        3.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When high out-degree tasks block downstream execution, prioritize them even more aggressively by making out-degree a stronger multiplier on critical path, and add a term that specifically boosts tasks with both high out-degree AND large resource needs\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a stronger multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.15)  # Increased from 0.1 to 0.15\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # NEW: Add a specific boost for tasks that have both high out-degree AND large resource needs\n    # These are the worst bottlenecks - they block many successors AND take long to execute\n    bottleneck_boost = 1.0 + (graph_context.out_degree(task) * task.resource_need * 0.02)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree and bottleneck boost\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * bottleneck_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 122.69256620364571,
+    "best_fixed_makespan": 133.08766599694363,
+    "improvement_over_fixed": 7.81,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "SPT"
+    }
+  },
+  {
+    "scene_id": "dag_S5_objective_change",
+    "scene_features": {
+      "scene_type": "dag_S5_objective_change",
+      "degradation_pct": 0.0,
+      "total_resources": 64,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        0.5,
+        3.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When high out-degree tasks block downstream execution, prioritize them even more aggressively by making out-degree a stronger multiplier on critical path, and add a term that specifically boosts tasks with both high out-degree AND large resource needs\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a stronger multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.15)  # Increased from 0.1 to 0.15\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # NEW: Add a specific boost for tasks that have both high out-degree AND large resource needs\n    # These are the worst bottlenecks - they block many successors AND take long to execute\n    bottleneck_boost = 1.0 + (graph_context.out_degree(task) * task.resource_need * 0.02)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree and bottleneck boost\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * bottleneck_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 122.69256620364571,
+    "best_fixed_makespan": 133.08766599694363,
+    "improvement_over_fixed": 7.81,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "LPT"
+    }
+  },
+  {
+    "scene_id": "dag_S5_objective_change",
+    "scene_features": {
+      "scene_type": "dag_S5_objective_change",
+      "degradation_pct": 0.0,
+      "total_resources": 64,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        0.5,
+        3.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When high out-degree tasks block downstream execution, prioritize them even more aggressively by making out-degree a stronger multiplier on critical path, and add a term that specifically boosts tasks with both high out-degree AND large resource needs\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a stronger multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.15)  # Increased from 0.1 to 0.15\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # NEW: Add a specific boost for tasks that have both high out-degree AND large resource needs\n    # These are the worst bottlenecks - they block many successors AND take long to execute\n    bottleneck_boost = 1.0 + (graph_context.out_degree(task) * task.resource_need * 0.02)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree and bottleneck boost\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * bottleneck_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 122.69256620364571,
+    "best_fixed_makespan": 133.08766599694363,
+    "improvement_over_fixed": 7.81,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "EDF"
+    }
+  },
+  {
+    "scene_id": "dag_S5_objective_change",
+    "scene_features": {
+      "scene_type": "dag_S5_objective_change",
+      "degradation_pct": 0.9546685109912634,
+      "total_resources": 64,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        0.5,
+        3.0
+      ]
+    },
+    "algorithm_code": "def priority(task, graph_context):\n    # IDEA: When high out-degree tasks block downstream execution, prioritize them even more aggressively by making out-degree a stronger multiplier on critical path, and add a term that specifically boosts tasks with both high out-degree AND large resource needs\n    critical_path_priority = graph_context.critical_path_remaining(task)\n    \n    # High out-degree tasks block many successors - use this as a stronger multiplier for critical path\n    # This ensures tasks that are both critical AND block many successors get highest priority\n    out_degree_boost = 1.0 + (graph_context.out_degree(task) * 0.15)  # Increased from 0.1 to 0.15\n    \n    # Resource efficiency: still important but less weight than critical path blocking\n    resource_efficiency = 1.0 / max(0.1, task.resource_need)\n    \n    # NEW: Add a specific boost for tasks that have both high out-degree AND large resource needs\n    # These are the worst bottlenecks - they block many successors AND take long to execute\n    bottleneck_boost = 1.0 + (graph_context.out_degree(task) * task.resource_need * 0.02)\n    \n    # Multiplicative combination: critical path priority amplified by out-degree and bottleneck boost\n    # This directly addresses the bottleneck where high out-degree tasks delay downstream execution\n    return (critical_path_priority * out_degree_boost * bottleneck_boost * 2.0 + \n            0.3 * resource_efficiency)",
+    "makespan": 122.69256620364571,
+    "best_fixed_makespan": 133.08766599694363,
+    "improvement_over_fixed": 7.81,
+    "metadata": {
+      "source": "dag_experiment",
+      "algo": "WSJF"
+    }
+  }
+]

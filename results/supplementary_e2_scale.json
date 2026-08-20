@@ -1,0 +1,42 @@
+[
+  {
+    "n_tasks": 20,
+    "algo": "SPT",
+    "makespan": 76.8
+  },
+  {
+    "n_tasks": 20,
+    "algo": "LPT",
+    "makespan": 69.4
+  },
+  {
+    "n_tasks": 50,
+    "algo": "SPT",
+    "makespan": 115.9
+  },
+  {
+    "n_tasks": 50,
+    "algo": "LPT",
+    "makespan": 93.2
+  },
+  {
+    "n_tasks": 100,
+    "algo": "SPT",
+    "makespan": 212.2
+  },
+  {
+    "n_tasks": 100,
+    "algo": "LPT",
+    "makespan": 154.5
+  },
+  {
+    "n_tasks": 200,
+    "algo": "SPT",
+    "makespan": 356.2
+  },
+  {
+    "n_tasks": 200,
+    "algo": "LPT",
+    "makespan": 305.8
+  }
+]

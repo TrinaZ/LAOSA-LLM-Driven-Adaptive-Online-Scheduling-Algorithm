@@ -1,0 +1,28 @@
+\begin{table}[h]
+\centering
+\caption{Hybrid strategy comparison and component ablation (full system: 80 trials, 8 runs per scenario).}
+\label{tab:ablation}
+\small
+\begin{threeparttable}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Configuration & Success rate & Queries & Latency (min) & Notes \\
+\midrule
+Full system (LAOSA) & 100.0\% (80/80) & $4.0\pm0.0$ & $0.41\pm0.09$ & --- \\
+\midrule
+Selection only      & 36.7\% & 0 & 1.2 & Static library insufficient \\
+Generation only     & 93.3\% & 13.2 & 4.8 & 41\% slower, 52\% costlier \\
+\midrule
+w/o CUSUM\tnote{a}  & 87.3\% & $4.3\pm2.2$ & $1.8\pm0.9$ & 6.7$\times$ slower \\
+w/o Bottleneck diag.& 60.0\% & $11.4\pm3.4$& $0.68\pm0.25$& $-$40 pp success \\
+w/o Cross-scene mem.& 70.0\% & $9.2\pm2.6$ & $0.54\pm0.18$& $2\times$ more queries \\
+w/o Hybrid selection& 100.0\%& $6.6\pm2.2$ & $0.37\pm0.16$& 57\% more queries \\
+LLM zero-shot       & 33.3\% (40/120) & $1.0\pm0.0$ & $0.09\pm0.02$ & No evolution \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item[a] Replaced by periodic trigger (every 50 jobs); CUSUM reduces false alarm rate from $\approx$8\% to 1\% and detects changes 2.4$\times$ faster.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

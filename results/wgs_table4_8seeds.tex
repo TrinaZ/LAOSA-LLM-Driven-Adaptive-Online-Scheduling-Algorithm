@@ -1,0 +1,22 @@
+\begin{table}[h]
+\centering
+\caption{LAOSA WGS performance by change type (960 trials, 30 scenarios $\times$ 4 baselines $\times$ 8 seeds).}
+\label{tab:wgs_q1_bytype}
+\small
+\begin{threeparttable}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Change type & Success rate & Latency (min) & LLM queries [min, max] \\
+\midrule
+Distributional & 320/320 & $0.39\pm0.16$ & $4.1\pm0.9$ [3,5] \\
+Structural & 320/320 & $0.42\pm0.16$ & $4.1\pm0.9$ [3,5] \\
+Semantic & 320/320 & $0.49\pm0.16$ & $4.6\pm0.7$ [3,5]\tnote{a} \\
+\midrule
+\multicolumn{4}{l}{\footnotesize Kruskal-Wallis on queries: $H=64.5$, $p<0.001$, $\eta^2=0.065$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item[a] Semantic combinations (Sem6, Sem10) may trigger fallback; all resolved via guaranteed bound.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

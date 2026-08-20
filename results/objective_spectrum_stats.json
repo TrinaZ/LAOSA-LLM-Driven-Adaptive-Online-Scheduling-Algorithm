@@ -1,0 +1,35 @@
+{
+  "objectives": [
+    {
+      "name": "Makespan",
+      "alpha": 1.0,
+      "bb": 0.6,
+      "n": "existing (320)"
+    },
+    {
+      "name": "Weighted FT",
+      "alpha": 0.8,
+      "bb": 73.4,
+      "n": "existing (64)"
+    },
+    {
+      "name": "Weighted Tardiness",
+      "alpha": 0.5,
+      "bb": 0.0,
+      "n": 40
+    },
+    {
+      "name": "Fairness Throughput",
+      "alpha": 0.2,
+      "bb": 0.0,
+      "n": 40
+    },
+    {
+      "name": "Energy Makespan",
+      "alpha": 0.05,
+      "bb": 0.0,
+      "n": 40
+    }
+  ],
+  "n_complete": 5
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "change_num": 1,
+    "scene": "S1_runtime_shift",
+    "note": "S1 first encounter",
+    "has_archive": false,
+    "archive_size": 1,
+    "degraded_ms": 76.8
+  },
+  {
+    "change_num": 2,
+    "scene": "S2_resource_drop",
+    "note": "S2 first encounter",
+    "has_archive": true,
+    "archive_size": 2,
+    "degraded_ms": 38.4
+  },
+  {
+    "change_num": 3,
+    "scene": "S1_runtime_shift",
+    "note": "S1 second time (archive should help)",
+    "has_archive": true,
+    "archive_size": 3,
+    "degraded_ms": 76.8
+  },
+  {
+    "change_num": 4,
+    "scene": "S3_task_mix_shift",
+    "note": "S3 first encounter",
+    "has_archive": true,
+    "archive_size": 4,
+    "degraded_ms": 36.1
+  },
+  {
+    "change_num": 5,
+    "scene": "S1_runtime_shift",
+    "note": "S1 third time (archive mature)",
+    "has_archive": true,
+    "archive_size": 5,
+    "degraded_ms": 76.8
+  }
+]

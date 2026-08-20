@@ -1,0 +1,32 @@
+{
+  "distributional": {
+    "n": 32,
+    "success_rate": 100.0,
+    "success_count": "32/32",
+    "latency_mean": 0.418046875,
+    "latency_std": 0.08445399835091644,
+    "query_mean": 4.0,
+    "query_std": 0.0,
+    "rollback_rate": 59.375
+  },
+  "structural": {
+    "n": 32,
+    "success_rate": 100.0,
+    "success_count": "32/32",
+    "latency_mean": 0.37346875,
+    "latency_std": 0.0909552167497448,
+    "query_mean": 4.0,
+    "query_std": 0.0,
+    "rollback_rate": 31.25
+  },
+  "semantic": {
+    "n": 16,
+    "success_rate": 100.0,
+    "success_count": "16/16",
+    "latency_mean": 0.44345833333333334,
+    "latency_std": 0.09382873545573457,
+    "query_mean": 4.0,
+    "query_std": 0.0,
+    "rollback_rate": 0.0
+  }
+}

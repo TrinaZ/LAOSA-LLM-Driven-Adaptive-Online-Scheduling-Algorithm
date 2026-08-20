@@ -1,0 +1,79 @@
+[
+  {
+    "stage": 0,
+    "alpha": 0.0,
+    "mean_runtime": 10.2,
+    "std_runtime": 2.0,
+    "max_runtime": 15.6
+  },
+  {
+    "stage": 1,
+    "alpha": 0.1,
+    "mean_runtime": 12.0,
+    "std_runtime": 10.4,
+    "max_runtime": 108.7
+  },
+  {
+    "stage": 2,
+    "alpha": 0.2,
+    "mean_runtime": 12.6,
+    "std_runtime": 11.2,
+    "max_runtime": 108.7
+  },
+  {
+    "stage": 3,
+    "alpha": 0.3,
+    "mean_runtime": 13.5,
+    "std_runtime": 14.0,
+    "max_runtime": 126.4
+  },
+  {
+    "stage": 4,
+    "alpha": 0.4,
+    "mean_runtime": 15.0,
+    "std_runtime": 18.0,
+    "max_runtime": 160.5
+  },
+  {
+    "stage": 5,
+    "alpha": 0.5,
+    "mean_runtime": 15.0,
+    "std_runtime": 18.1,
+    "max_runtime": 160.5
+  },
+  {
+    "stage": 6,
+    "alpha": 0.6,
+    "mean_runtime": 15.4,
+    "std_runtime": 18.3,
+    "max_runtime": 160.5
+  },
+  {
+    "stage": 7,
+    "alpha": 0.7,
+    "mean_runtime": 16.1,
+    "std_runtime": 18.9,
+    "max_runtime": 160.5
+  },
+  {
+    "stage": 8,
+    "alpha": 0.8,
+    "mean_runtime": 17.1,
+    "std_runtime": 21.5,
+    "max_runtime": 160.5
+  },
+  {
+    "stage": 9,
+    "alpha": 0.9,
+    "mean_runtime": 18.0,
+    "std_runtime": 22.6,
+    "max_runtime": 160.5
+  },
+  {
+    "stage": 10,
+    "alpha": 1.0,
+    "mean_runtime": 18.6,
+    "std_runtime": 23.1,
+    "max_runtime": 160.5
+  }
+]

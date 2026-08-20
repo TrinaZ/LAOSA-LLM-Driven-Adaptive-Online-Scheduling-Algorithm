@@ -1,0 +1,31 @@
+{
+  "D11": {
+    "n": 32,
+    "success_rate_pct": 100.0,
+    "beats_best_pct": 62.5,
+    "beats_lpt_pct": 100.0,
+    "improvement_mean": 8.2,
+    "improvement_std": 2.4,
+    "queries_mean": 5.7,
+    "queries_std": 1.9,
+    "latency_mean": 0.47
+  },
+  "D12": {
+    "n": 32,
+    "success_rate_pct": 100.0,
+    "beats_best_pct": 84.4,
+    "beats_lpt_pct": 100.0,
+    "improvement_mean": 8.5,
+    "improvement_std": 4.0,
+    "queries_mean": 5.8,
+    "queries_std": 1.4,
+    "latency_mean": 0.39
+  },
+  "combined": {
+    "n": 64,
+    "beats_best_pct": 73.4,
+    "beats_lpt_pct": 100.0,
+    "improvement_mean": 8.4,
+    "improvement_std": 3.3
+  }
+}

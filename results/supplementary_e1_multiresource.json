@@ -1,0 +1,14 @@
+[
+  {
+    "scene": "S6: Memory pressure",
+    "base_ms": 23.486220446330602,
+    "changed_ms": 23.486220446330602,
+    "description": "Memory requirements doubled \u2014 tasks need 4-16GB instead of 2-8GB"
+  },
+  {
+    "scene": "S7: IO bottleneck",
+    "base_ms": 23.486220446330602,
+    "changed_ms": 23.486220446330602,
+    "description": "IO requirements doubled \u2014 storage bandwidth becomes limiting"
+  }
+]

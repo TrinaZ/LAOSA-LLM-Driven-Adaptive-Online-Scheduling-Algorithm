@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Cross-domain memory transfer pilot (4 seeds per transfer path; mean$\pm$std; 95\% CI in brackets). $p$: one-sided Wilcoxon test vs.\ static baseline (0\%); --- = in-domain.}
+\label{tab:transfer}
+\small
+\begin{tabular}{@{}llcccr@{}}
+\toprule
+  Source & Target & Succ. Rate (\%) & Queries & Latency (min) & $p$ \\
+\midrule
+  Cloud & Cloud (in-domain) & 0.0$\pm$0.0 [0.0,0.0] & $0.0\pm0.0$ & $0.0\pm0.0$ & --- \\
+  Semiconductor & Semiconductor (in-domain) & 0.0$\pm$0.0 [0.0,0.0] & $0.0\pm0.0$ & $0.0\pm0.0$ & --- \\
+  Cloud & Semiconductor & 81.2$\pm$39.0 [69.8,92.7] & $5.0\pm1.9$ & $0.3\pm0.1$ & 0.125 \\
+  Cloud & Delivery & 75.0$\pm$43.3 [65.3,84.7] & $3.2\pm1.6$ & $0.2\pm0.1$ & $<$0.01 \\
+  Semiconductor & Cloud & 80.0$\pm$40.0 [71.0,89.0] & $4.3\pm0.7$ & $0.3\pm0.1$ & $<$0.01 \\
+  Semiconductor & Delivery & 75.0$\pm$43.3 [65.3,84.7] & $3.2\pm1.6$ & $0.2\pm0.1$ & $<$0.01 \\
+\bottomrule
+\end{tabular}
+\end{table}

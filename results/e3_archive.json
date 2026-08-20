@@ -1,0 +1,112 @@
+[
+  {
+    "scene_id": "S1_runtime_shift",
+    "scene_features": {
+      "scene_type": "S1",
+      "degradation_pct": 100,
+      "total_resources": 100,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "lognormal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "\ndef priority(task):\n    return task.estimated_runtime\n",
+    "makespan": 69.13580873610752,
+    "best_fixed_makespan": 76.81756526234169,
+    "improvement_over_fixed": 10.0,
+    "metadata": {}
+  },
+  {
+    "scene_id": "S2_resource_drop",
+    "scene_features": {
+      "scene_type": "S2",
+      "degradation_pct": 100,
+      "total_resources": 60,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "\ndef priority(task):\n    return task.estimated_runtime\n",
+    "makespan": 34.598662316214266,
+    "best_fixed_makespan": 38.442958129126964,
+    "improvement_over_fixed": 10.0,
+    "metadata": {}
+  },
+  {
+    "scene_id": "S1_runtime_shift",
+    "scene_features": {
+      "scene_type": "S1",
+      "degradation_pct": 100,
+      "total_resources": 100,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "lognormal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "\ndef priority(task):\n    return task.estimated_runtime\n",
+    "makespan": 69.13580873610752,
+    "best_fixed_makespan": 76.81756526234169,
+    "improvement_over_fixed": 10.0,
+    "metadata": {}
+  },
+  {
+    "scene_id": "S3_task_mix_shift",
+    "scene_features": {
+      "scene_type": "S3",
+      "degradation_pct": 100,
+      "total_resources": 100,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "normal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "\ndef priority(task):\n    return task.estimated_runtime\n",
+    "makespan": 32.50359796503395,
+    "best_fixed_makespan": 36.11510885003772,
+    "improvement_over_fixed": 10.0,
+    "metadata": {}
+  },
+  {
+    "scene_id": "S1_runtime_shift",
+    "scene_features": {
+      "scene_type": "S1",
+      "degradation_pct": 100,
+      "total_resources": 100,
+      "task_types": [
+        "alignment",
+        "variant_calling"
+      ],
+      "runtime_distribution": "lognormal",
+      "weight_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "algorithm_code": "\ndef priority(task):\n    return task.estimated_runtime\n",
+    "makespan": 69.13580873610752,
+    "best_fixed_makespan": 76.81756526234169,
+    "improvement_over_fixed": 10.0,
+    "metadata": {}
+  }
+]

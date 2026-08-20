@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "mr_S6_memory",
+    "algo": "SPT",
+    "seed_ms": 127.5,
+    "base_ms": 123.9,
+    "generated_ms": 129.0,
+    "improvement": -1.2,
+    "beats_lpt": "False"
+  },
+  {
+    "scene": "mr_S6_memory",
+    "algo": "LPT",
+    "seed_ms": 123.9,
+    "base_ms": 123.9,
+    "generated_ms": 127.0,
+    "improvement": -2.5,
+    "beats_lpt": "False"
+  },
+  {
+    "scene": "mr_S6_memory",
+    "algo": "MultiEff",
+    "seed_ms": 129.0,
+    "base_ms": 123.9,
+    "generated_ms": 118.5,
+    "improvement": 8.1,
+    "beats_lpt": "True"
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "algo": "SPT",
+    "seed_ms": 104.2,
+    "base_ms": 99.6,
+    "generated_ms": 106.8,
+    "improvement": -2.5,
+    "beats_lpt": "False"
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "algo": "LPT",
+    "seed_ms": 99.6,
+    "base_ms": 99.6,
+    "generated_ms": 98.7,
+    "improvement": 0.9,
+    "beats_lpt": "True"
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "algo": "MultiEff",
+    "seed_ms": 109.7,
+    "base_ms": 99.6,
+    "generated_ms": 103.5,
+    "improvement": 5.7,
+    "beats_lpt": "False"
+  }
+]

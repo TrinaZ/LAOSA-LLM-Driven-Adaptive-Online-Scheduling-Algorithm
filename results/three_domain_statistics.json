@@ -1,0 +1,83 @@
+{
+  "overall": {
+    "n": 360,
+    "n_success": 360,
+    "success_rate_pct": 100.0,
+    "improvement_mean": 21.47,
+    "latency_mean_min": 0.259,
+    "llm_calls_mean": 4.09
+  },
+  "by_change_type": {
+    "distributional": {
+      "n": 144,
+      "success": 144,
+      "success_rate_pct": 100.0,
+      "improvement_mean": 13.15,
+      "improvement_ci95": [
+        11.55,
+        14.7
+      ],
+      "latency_mean": 0.259,
+      "latency_std": 0.04,
+      "calls_mean": 4.03,
+      "calls_std": 0.26,
+      "beats_best_fixed_pct": 1.4
+    },
+    "structural": {
+      "n": 144,
+      "success": 144,
+      "success_rate_pct": 100.0,
+      "improvement_mean": 14.55,
+      "improvement_ci95": [
+        12.97,
+        16.07
+      ],
+      "latency_mean": 0.254,
+      "latency_std": 0.051,
+      "calls_mean": 4.08,
+      "calls_std": 0.51,
+      "beats_best_fixed_pct": 2.8
+    },
+    "semantic": {
+      "n": 72,
+      "success": 72,
+      "success_rate_pct": 100.0,
+      "improvement_mean": 51.94,
+      "improvement_ci95": [
+        42.92,
+        61.05
+      ],
+      "latency_mean": 0.27,
+      "latency_std": 0.202,
+      "calls_mean": 4.21,
+      "calls_std": 3.12,
+      "beats_best_fixed_pct": 66.7
+    }
+  },
+  "by_domain": {
+    "cloud": {
+      "n": 120,
+      "success_rate_pct": 100.0,
+      "improvement_mean": 12.88
+    },
+    "semiconductor": {
+      "n": 120,
+      "success_rate_pct": 100.0,
+      "improvement_mean": 23.58
+    },
+    "delivery": {
+      "n": 120,
+      "success_rate_pct": 100.0,
+      "improvement_mean": 27.95
+    }
+  },
+  "kruskal_calls": {
+    "H": 33.288,
+    "p": 0.0
+  },
+  "fisher_success_rates": {
+    "dist_vs_stru": 1.0,
+    "dist_vs_sema": 1.0,
+    "stru_vs_sema": 1.0
+  }
+}

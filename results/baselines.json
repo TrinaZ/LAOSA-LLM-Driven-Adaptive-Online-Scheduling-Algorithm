@@ -1,0 +1,50 @@
+{
+  "baseline": {
+    "random_makespan": 23.51,
+    "SPT": 24.43,
+    "LPT": 23.24,
+    "EDF": 24.41,
+    "WSJF": 24.43,
+    "ResourceEfficient": 24.22
+  },
+  "S1_runtime_shift": {
+    "random_makespan": 66.08,
+    "SPT": 69.24,
+    "LPT": 62.33,
+    "EDF": 69.04,
+    "WSJF": 69.24,
+    "ResourceEfficient": 66.18
+  },
+  "S2_resource_drop": {
+    "random_makespan": 36.78,
+    "SPT": 37.37,
+    "LPT": 37.22,
+    "EDF": 37.65,
+    "WSJF": 37.37,
+    "ResourceEfficient": 39.44
+  },
+  "S3_task_mix_shift": {
+    "random_makespan": 35.29,
+    "SPT": 36.51,
+    "LPT": 34.03,
+    "EDF": 35.84,
+    "WSJF": 36.51,
+    "ResourceEfficient": 35.34
+  },
+  "S4_novel_task": {
+    "random_makespan": 86.84,
+    "SPT": 90.22,
+    "LPT": 71.76,
+    "EDF": 93.37,
+    "WSJF": 90.22,
+    "ResourceEfficient": 90.13
+  },
+  "S5_objective_change": {
+    "random_makespan": 23.65,
+    "SPT": 24.43,
+    "LPT": 23.24,
+    "EDF": 24.41,
+    "WSJF": 23.61,
+    "ResourceEfficient": 24.22
+  }
+}

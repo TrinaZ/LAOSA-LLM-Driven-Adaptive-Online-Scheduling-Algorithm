@@ -1,0 +1,126 @@
+[
+  {
+    "scene": "mr_baseline",
+    "name": "Baseline (balanced resources)",
+    "results": {
+      "SPT": {
+        "mean": 35.8,
+        "std": 3.1
+      },
+      "LPT": {
+        "mean": 33.3,
+        "std": 2.6
+      },
+      "CPU-Efficient": {
+        "mean": 35.3,
+        "std": 2.5
+      },
+      "Memory-Efficient": {
+        "mean": 37.2,
+        "std": 3.2
+      },
+      "IO-Efficient": {
+        "mean": 37.3,
+        "std": 4.5
+      },
+      "Multi-Efficient": {
+        "mean": 35.9,
+        "std": 2.5
+      }
+    },
+    "best": "LPT"
+  },
+  {
+    "scene": "mr_S6_memory",
+    "name": "S6: Memory pressure (2-3x memory needs)",
+    "results": {
+      "SPT": {
+        "mean": 114.7,
+        "std": 12.9
+      },
+      "LPT": {
+        "mean": 111.8,
+        "std": 12.5
+      },
+      "CPU-Efficient": {
+        "mean": 113.7,
+        "std": 12.2
+      },
+      "Memory-Efficient": {
+        "mean": 115.3,
+        "std": 11.5
+      },
+      "IO-Efficient": {
+        "mean": 112.4,
+        "std": 13.0
+      },
+      "Multi-Efficient": {
+        "mean": 114.8,
+        "std": 13.1
+      }
+    },
+    "best": "LPT"
+  },
+  {
+    "scene": "mr_S7_io",
+    "name": "S7: IO bottleneck (2-3x IO needs)",
+    "results": {
+      "SPT": {
+        "mean": 79.8,
+        "std": 6.7
+      },
+      "LPT": {
+        "mean": 77.4,
+        "std": 5.4
+      },
+      "CPU-Efficient": {
+        "mean": 77.3,
+        "std": 5.3
+      },
+      "Memory-Efficient": {
+        "mean": 78.5,
+        "std": 7.4
+      },
+      "IO-Efficient": {
+        "mean": 81.1,
+        "std": 5.0
+      },
+      "Multi-Efficient": {
+        "mean": 79.8,
+        "std": 4.6
+      }
+    },
+    "best": "CPU-Efficient"
+  },
+  {
+    "scene": "mr_S8_all_tight",
+    "name": "S8: All resources tight + new task type",
+    "results": {
+      "SPT": {
+        "mean": 94.4,
+        "std": 12.0
+      },
+      "LPT": {
+        "mean": 94.5,
+        "std": 9.5
+      },
+      "CPU-Efficient": {
+        "mean": 93.5,
+        "std": 7.4
+      },
+      "Memory-Efficient": {
+        "mean": 104.9,
+        "std": 11.1
+      },
+      "IO-Efficient": {
+        "mean": 101.0,
+        "std": 11.8
+      },
+      "Multi-Efficient": {
+        "mean": 100.3,
+        "std": 9.0
+      }
+    },
+    "best": "CPU-Efficient"
+  }
+]

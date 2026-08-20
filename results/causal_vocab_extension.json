@@ -1,0 +1,8 @@
+[
+  {
+    "run_id": "causal_control_seed0_SPT",
+    "condition": "control",
+    "inject_energy_vocab": false,
+    "seed": 0,
+    "baseline": "SPT",
+    "beats_best": 

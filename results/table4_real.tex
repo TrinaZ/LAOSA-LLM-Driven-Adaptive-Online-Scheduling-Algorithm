@@ -1,0 +1,23 @@
+\begin{table}[h]
+\centering
+\caption{LAOSA performance disaggregated by change type (480 trials, 30 scenarios $\times$ 4 domains $\times$ 4 seeds).}}
+\label{tab:q1_bytype}
+\small
+\begin{threeparttable}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Change type & Success rate & Latency (min) & LLM queries & Rollback \\
+\midrule
+Distributional (n=160) & 160/160 (100\%) & $0.40\pm0.15$ & $4.1\pm0.9$ & 80.6\% \\
+Structural (n=160) & 160/160 (100\%) & $0.43\pm0.16$ & $4.0\pm0.9$ & 85.6\% \\
+Semantic (n=160) & 160/160 (100\%)\tnote{a} & $0.54\pm0.16$ & $4.6\pm0.7$ & 18.8\% \\
+\midrule
+\multicolumn{5}{l}{\footnotesize Kruskal-Wallis on queries: $H=35.2$, $p<0.001$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item[a] Semantic-tier trials with multi-objective combinations (Sem6/Sem10) that triggered the fallback are included; all resolved via the guaranteed worst-case bound of Proposition~4.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

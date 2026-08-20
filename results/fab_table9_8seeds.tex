@@ -1,0 +1,17 @@
+\begin{table}[h]
+\centering
+\caption{Fab domain adaptation performance (720 trials, 30 scenarios $\times$ 3 baselines $\times$ 8 seeds; CR excluded due to deadline-dependency, see Section~\ref{sec:fab_setup}).}
+\label{tab:fab_summary}
+\small
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Change type & Success & LLM queries & Improvement (\%) & CV & Beats best \\
+\midrule
+Distributional & 240/240 & $5.8\pm1.7$ & $21.7\pm18.0$ & 83.0\% & 79/240 \\
+Structural & 240/240 & $7.4\pm1.0$ & $15.8\pm12.2$ & 77.2\% & 131/240 \\
+Semantic & 240/240 & $8.0\pm0.0$ & $10.9\pm22.5$ & 207.2\% & 49/240 \\
+\midrule
+\multicolumn{6}{l}{\footnotesize Kruskal-Wallis: $H=86.8$, $p<0.001$, $\eta^2=0.118$} \\
+\bottomrule
+\end{tabular}
+\end{table}

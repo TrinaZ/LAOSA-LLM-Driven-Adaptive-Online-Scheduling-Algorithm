@@ -1,0 +1,19 @@
+
+\begin{table}[h]
+\centering
+\caption{Statistical significance testing results.}
+\label{tab:statistical_tests}
+\begin{tabular}{lcc}
+\toprule
+Test & Statistic & p-value \\
+\midrule
+Paired $t$-test & $t(19) = -3.979$ & $p < 0.001$ *** \\
+Effect size (Cohen's $d$) & -0.890 & (large) \\
+\midrule
+\multicolumn{3}{l}{\textbf{LLM Stochasticity (5 repeated runs)}} \\
+S2·LPT & $189.15 \pm 1.56$ & CV=0.82\% \\
+S3·LPT & $33.21 \pm 0.29$ & CV=0.87\% \\
+S5·EDF & $22.93 \pm 0.19$ & CV=0.81\% \\
+\bottomrule
+\end{tabular}
+\end{table}
