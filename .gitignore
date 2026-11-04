@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+README_LAOSA.md
+test_api.py
+.env
+*.env
+results/fab_matrix_seeds0to3.json
